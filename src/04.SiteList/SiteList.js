@@ -1,18 +1,58 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AddNewSite from '../07.AddSiteForm/AddSiteForm';
-import './SiteList.css'
+import TokenService from '../services/token-service';
+import config from '../config';
+import './SiteList.css';
 
 export default class SiteList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      location: [],
+    };
+  }
+
+  // fetch req 
+  componentDidMount() {
+    let URL = `${config.API_ENDPOINT}/location`;
+
+    fetch(URL, {
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      }
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          location: data,
+        });
+      })
+      .catch((error) => console.log(error));
+  }
+
+
+
 
   render() {
-
+    console.log(this.state.location);
     return (
 
       <main>
         <div className="list-page">
           <h1 className='list-h1'>List</h1>
-
+          <h4>{this.state.location.map((item, key) => {
+            return (
+              <div key={key}>
+                <p>{item.title}</p>
+                <p>{item.content}</p>
+                <p>{item.image}</p>
+                <p>{item.keyword}</p>
+                <p>{item.location}</p>
+              </div>
+            );
+          })}</h4>
           {/* potentially adding a map onto this page */}
           {/* <div>
             <iframe className='map'
@@ -45,7 +85,7 @@ export default class SiteList extends Component {
             <p> Stuff about this secluded camping spot.
         <Link to="/Site/3"> alt="Oregon"</Link> </p>
           </section>
-          <div> <AddNewSite/></div>
+          <div> <AddNewSite /></div>
 
         </div>
       </main>
