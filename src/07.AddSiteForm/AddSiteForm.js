@@ -5,16 +5,30 @@ class AddNewSite extends Component {
     super(props);
     this.state = {
       title: '',
-      content: ''
+      content: '', 
+      keyword: ''
     };
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault(); 
+    const newSitePayload  = {
+      title: this.state.title, 
+      content: this.state.content, 
+      keyword:this.state.keyword,
+    }
+    console.log(newSitePayload)
+}
+
 // what needed for database: 
-  // title, location, keyword,
   // * image(image)
     // * title (note title)
     // * content (note text)
     // * keyword (keyword for maps)
+  
+  
+  
+  
 
   render() {
     return (
@@ -33,7 +47,7 @@ class AddNewSite extends Component {
               required
             /></label>
 
-          <label> Note
+          <label> Content
           <input
               type="text"
               className='input-note'

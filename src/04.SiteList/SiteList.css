@@ -1,0 +1,6 @@
+.list-page {
+  background-image: url('/src/images/MtStHelensFlowers_1024x1024@2x.jpg');
+  background-size: cover;
+  /* min-width: 100vh; */
+  min-height: 100vh;
+}

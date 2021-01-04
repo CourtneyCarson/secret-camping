@@ -1,0 +1,6 @@
+.site-page {
+  background-image: url('/src/images/DrownedRat_1024x1024@2x-\ cody\ wilson.jpg');
+  background-size: cover;
+  /* min-width: 100vh; */
+  min-height: 100vh;
+}

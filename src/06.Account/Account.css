@@ -1,0 +1,6 @@
+.accounts-page {
+  background-image: url('/src/images/brokenhilltorreypines.webp');
+  background-size: cover;
+  /* min-width: 100vh; */
+  min-height: 100vh;
+}

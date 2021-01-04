@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NoteForm from '../08.NoteForm/NoteForm';
+import './Account.css';
 
 class Account extends Component {
   render() {

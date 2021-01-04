@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AddNewSite from '../07.AddSiteForm/AddSiteForm';
+import './SiteList.css'
 
 export default class SiteList extends Component {
 

@@ -1,0 +1,20 @@
+.login-component {
+  background-image: url('/src/images/ItalyBackground.jpeg');
+  background-size: cover;
+  /* min-width: 100vh; */
+  min-height: 100vh;
+}
+
+
+
+.login-overlay {
+  background:rgba(255,255,255, 0.5);
+  display:flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  max-width: 80em;
+  margin: 6em 5em 0 5em;
+  padding:2em;
+}
