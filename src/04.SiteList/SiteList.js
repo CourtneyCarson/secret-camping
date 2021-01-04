@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import AddNewSite from '../07.AddSiteForm/AddSiteForm';
 import TokenService from '../services/token-service';
 import config from '../config';
@@ -44,10 +43,10 @@ export default class SiteList extends Component {
           <h1 className='list-h1'>List</h1>
           <h4>{this.state.location.map((item, key) => {
             return (
-              <div key={key}>
+              <div className='site-list' key={key}>
                 <p>{item.title}</p>
                 <p>{item.content}</p>
-                <p>{item.image}</p>
+                <img src={item.image} alt ='location'/>
                 <p>{item.keyword}</p>
                 <p>{item.location}</p>
               </div>
@@ -68,23 +67,7 @@ export default class SiteList extends Component {
             </iframe>
           </div> */}
 
-          <section>
-            <img src="example.jpg" alt="secluded-site-town" />
-            <p> Stuff about this secluded camping spot.
-        <Link to="/Site/1"> alt="Oregon"</Link> </p>
-          </section>
-
-          <section>
-            <img src="example.jpg" alt="secluded-site-town" />
-            <p> Stuff about this secluded camping spot.
-        <Link to="/Site/2"> alt="Oregon"</Link> </p>
-          </section>
-
-          <section>
-            <img src="example.jpg" alt="secluded-site-town" />
-            <p> Stuff about this secluded camping spot.
-        <Link to="/Site/3"> alt="Oregon"</Link> </p>
-          </section>
+      
           <div> <AddNewSite /></div>
 
         </div>
