@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import AddNewSite from '../07.AddSiteForm/AddSiteForm';
 
 export default class SiteList extends Component {
 
@@ -43,6 +44,7 @@ export default class SiteList extends Component {
             <p> Stuff about this secluded camping spot.
         <Link to="/Site/3"> alt="Oregon"</Link> </p>
           </section>
+          <div> <AddNewSite/></div>
 
         </div>
       </main>
