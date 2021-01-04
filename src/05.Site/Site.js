@@ -26,7 +26,7 @@ export default class Site extends Component {
                 width='200'
                 height='200'
                 frameborder='0'
-                // style='border:0;'
+                // style='border:20;'
                 allowfullscreen=''
                 aria-hidden='false'
                 tabindex='0'
