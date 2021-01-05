@@ -3,6 +3,7 @@ import AddNewSite from '../07.AddSiteForm/AddSiteForm';
 import TokenService from '../services/token-service';
 import config from '../config';
 import './SiteList.css';
+import MasterForm from '../07.AddSiteForm/MasterWizard';
 // import FilterDropDown from '../FilterDropdown/FilterDropDown';
 
 export default class SiteList extends Component {
@@ -48,7 +49,9 @@ export default class SiteList extends Component {
 
           <h1 className='list-h1'>List</h1>
 
-          <div> <AddNewSite /></div>
+          <div><MasterForm/> </div>
+
+          {/* <div> <AddNewSite /></div> */}
 
           {/* <div> <FilterDropDown/> </div> */}
           {/* google map */}

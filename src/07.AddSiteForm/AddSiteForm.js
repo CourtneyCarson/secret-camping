@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 // let cl = new Cloudinary.Cloudinary({cloud_name: "secret-campsites", secure: true, names: 'snake_case'});
-import './AddSiteForm.css'
+import './AddSiteForm.css';
 
 
 class AddNewSite extends Component {
@@ -16,12 +16,14 @@ class AddNewSite extends Component {
     };
   }
 
+  // handler for the text of the form
   handleSubmit = (event) => {
     event.preventDefault();
     const newSitePayload = {
       title: this.state.title,
       content: this.state.content,
       keyword: this.state.keyword,
+      imgeURL: this.state.imageUrl,
     };
     console.log(newSitePayload);
   };
@@ -35,14 +37,14 @@ class AddNewSite extends Component {
   // possibly set set then able to call it as this.state 
 
   handleImageUpload = () => {
-    const { files } = document.querySelector('input[type="file"]')
+    const { files } = document.querySelector('input[type="file"]');
     const formData = new FormData();
     formData.append('file', files[0]);
     // replace this with your upload preset name
     formData.append('upload_preset', 'k6ol9ng3');
     const options = {
       method: 'POST',
-    
+
       body: formData,
     };
 
@@ -54,31 +56,28 @@ class AddNewSite extends Component {
         this.setState({
           imageUrl: res.secure_url,
           imageAlt: `An image of ${res.original_filename}`
-        })
+        });
       })
       .catch(err => console.log(err));
-  }
+  };
 
 
-// for widget:
-openWidget = () => {
-  // create the widget
-  window.cloudinary.createUploadWidget(
-    {
-      cloudName: 'secret-campsites',
-      uploadPreset: 'k6ol9ng3',
-    },
-    (error, result) => {
-      this.setState({
-        imageUrl: result.info.secure_url,
-        imageAlt: `An image of ${result.info.original_filename}`
-      })
-    },
-  ).open(); // open up the widget after creation
-};
-
-
-
+  // for widget:
+  openWidget = () => {
+    // create the widget
+    window.cloudinary.createUploadWidget(
+      {
+        cloudName: 'secret-campsites',
+        uploadPreset: 'k6ol9ng3',
+      },
+      (error, result) => {
+        this.setState({
+          imageUrl: result.info.secure_url,
+          imageAlt: `An image of ${result.info.original_filename}`
+        });
+      },
+    ).open(); // open up the widget after creation
+  };
 
 
 
@@ -91,29 +90,29 @@ openWidget = () => {
       <section className='add-new-site'>
 
 
+        {/* to show the actual image fetched from cloudinary: <Image cloudName="secret-campsites" publicId="sample" width="300" crop="scale" /> */}
+        <section className="left-side">
+          <form>
+            <div className="form-group">
+              <input type="file" />
+            </div>
 
-          {/* <Image cloudName="secret-campsites" publicId="sample" width="300" crop="scale" /> */}
-          <section className="left-side">
-            <form>
-              <div className="form-group">
-                <input type="file" />
-              </div>
+            <button type="button" className="btn" onClick={this.handleImageUpload}>Submit</button>
+            <button type="button" className="btn widget-btn" onClick={this.openWidget}>Upload Via Widget</button>
+          </form>
+        </section>
+        <section className="right-side">
+          <p>The resulting image will be displayed here</p>
+          {imageUrl && (
+            <img src={imageUrl} alt={imageAlt} className="displayed-image" />
+          )}
+        </section>
 
-              <button type="button" className="btn" onClick={this.handleImageUpload}>Submit</button>
-              <button type="button" className="btn widget-btn" onClick={this.openWidget}>Upload Via Widget</button>            </form>
-          </section>
-          <section className="right-side">
-            <p>The resulting image will be displayed here</p>
-            {imageUrl && (
-              <img src={imageUrl} alt={imageAlt} className="displayed-image" />
-            )}
-          </section>
-
-
-          <form className='add-new-form' onSubmit={this.handleSubmit}>
+        {/* Form to add text for the new site - have to figure out how to implement it together with adding the image */}
+        <form className='add-new-form' onSubmit={this.handleSubmit}>
 
           <label> Title
-        <input
+          <input
               type='text'
               className='input-title'
               placeholder='write title'
@@ -122,11 +121,12 @@ openWidget = () => {
               id='title'
               onChange={(event) => this.setState({ title: event.target.value })}
               required
-            /></label>
+            />
+          </label>
 
           <label> Content
           <input
-              type="text"
+              type='text'
               className='input-note'
               placeholder='write notes here'
               value={this.state.content}
@@ -136,18 +136,21 @@ openWidget = () => {
               required
             />
           </label>
+
+          <label> Keyword
+           <input
+              type='text'
+              className='input-keyword'
+              placeholder='location keyword'
+              value={this.state.keyword}
+              name='keyword'
+              id='keyword'
+              onChange={(event) => this.setState({ keyword: event.target.value })} />
+          </label>
+
           <button className='note-button' type='submit'>Add New Site</button>
 
         </form>
-
-
-
-
-
-
-
-
-
       </section>
     );
   }
