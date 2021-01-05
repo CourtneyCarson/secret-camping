@@ -42,16 +42,30 @@ export default class SiteList extends Component {
     console.log(this.state.location);
     return (
 
+
       <main>
         <div className="list-page">
+
           <h1 className='list-h1'>List</h1>
+
+          <div> <AddNewSite /></div>
+
           {/* <div> <FilterDropDown/> </div> */}
+          {/* google map */}
           <h4>{this.state.location.map((item, key) => {
-                let iFrameUrl = `https://maps.google.com/maps?q=${item.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+            let iFrameUrl = `https://maps.google.com/maps?q=${item.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
 
             return (
               <div className='site-list' key={key}>
 
+                <p>{item.title}</p>
+                <p>{item.content}</p>
+                <img src={item.image} alt='location' />
+                <p>{item.keyword}</p>
+                <p>{item.location}</p>
+                <button className='save-button' type='submit'> Save </button>
+
+                {/* google map */}
                 <iframe
                   className="item-image"
                   width="100%"
@@ -64,20 +78,10 @@ export default class SiteList extends Component {
                   title='title'
                 ></iframe>
 
-                <p>{item.title}</p>
-                <p>{item.content}</p>
-                <img src={item.image} alt='location' />
-                <p>{item.keyword}</p>
-                <p>{item.location}</p>
-                <button className='save-button' type='submit'> Save </button>
               </div>
             );
           })}</h4>
           {/* potentially adding a map onto this page */}
-
-
-
-          <div> <AddNewSite /></div>
 
         </div>
       </main>

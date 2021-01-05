@@ -1,0 +1,68 @@
+.left-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: .5px solid grey;
+}
+
+.right-side {
+  border-left: .5px solid grey;
+}
+
+.left-side,
+ .right-side {
+  height: 300px;
+  width: 100%;
+}
+
+ .left-side form {
+  height: fit-content;
+  background: white;
+  border: 1px solid grey;
+  border-radius: 4px;
+  width: 300px;
+  padding: 40px 10px;
+}
+
+ .left-side form input {
+  margin: 0 0 30px;
+  width: 200px;
+}
+
+ .left-side form .btn {
+  height: 40px;
+  width: 200px;
+  background: white;
+  border: 1px solid grey;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+ .left-side form .btn:hover {
+  color: white;
+  background: grey;
+}
+
+ .left-side form .btn:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+ .left-side form .btn.widget-btn {
+  margin-top: 15px;
+  background: #800080;
+  border: 1px solid #800080;
+  color: #FFFFFF;
+}
+
+ .left-side form .btn.widget-btn:hover {
+  margin-top: 15px;
+  background: #4B0082;
+  border: 1px solid #4B0082;
+  color: #FFFFFF;
+}
+
+ .right-side .displayed-image {
+  height: 300px;
+  width: 300px;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
+// import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 // let cl = new Cloudinary.Cloudinary({cloud_name: "secret-campsites", secure: true, names: 'snake_case'});
-
+import './AddSiteForm.css'
 
 
 class AddNewSite extends Component {
@@ -10,7 +10,9 @@ class AddNewSite extends Component {
     this.state = {
       title: '',
       content: '',
-      keyword: ''
+      keyword: '',
+      imageUrl: null,
+      imageAlt: null,
     };
   }
 
@@ -29,16 +31,86 @@ class AddNewSite extends Component {
   // * title (note title)
   // * content (note text)
   // * keyword (keyword for maps)
+  // need a function to set up publicID to be attached to location_id
+  // possibly set set then able to call it as this.state 
+
+  handleImageUpload = () => {
+    const { files } = document.querySelector('input[type="file"]')
+    const formData = new FormData();
+    formData.append('file', files[0]);
+    // replace this with your upload preset name
+    formData.append('upload_preset', 'k6ol9ng3');
+    const options = {
+      method: 'POST',
+    
+      body: formData,
+    };
+
+    // replace cloudname with your Cloudinary cloud_name
+    return fetch('https://api.Cloudinary.com/v1_1/secret-campsites/image/upload', options)
+      .then(res => res.json())
+      // .then(res => console.log(res))
+      .then(res => {
+        this.setState({
+          imageUrl: res.secure_url,
+          imageAlt: `An image of ${res.original_filename}`
+        })
+      })
+      .catch(err => console.log(err));
+  }
 
 
-// need a function to set up publicID to be attached to location_id
-// possibly set set then able to call it as this.state 
+// for widget:
+openWidget = () => {
+  // create the widget
+  window.cloudinary.createUploadWidget(
+    {
+      cloudName: 'secret-campsites',
+      uploadPreset: 'k6ol9ng3',
+    },
+    (error, result) => {
+      this.setState({
+        imageUrl: result.info.secure_url,
+        imageAlt: `An image of ${result.info.original_filename}`
+      })
+    },
+  ).open(); // open up the widget after creation
+};
+
+
+
+
+
 
   render() {
+    // for image upload:
+    const { imageUrl, imageAlt } = this.state;
+
+
     return (
       <section className='add-new-site'>
-        <form className='add-new-form' onSubmit={this.handleSubmit}>
-        <Image cloudName="secret-campsites" publicId="sample" width="300" crop="scale" />
+
+
+
+          {/* <Image cloudName="secret-campsites" publicId="sample" width="300" crop="scale" /> */}
+          <section className="left-side">
+            <form>
+              <div className="form-group">
+                <input type="file" />
+              </div>
+
+              <button type="button" className="btn" onClick={this.handleImageUpload}>Submit</button>
+              <button type="button" className="btn widget-btn" onClick={this.openWidget}>Upload Via Widget</button>            </form>
+          </section>
+          <section className="right-side">
+            <p>The resulting image will be displayed here</p>
+            {imageUrl && (
+              <img src={imageUrl} alt={imageAlt} className="displayed-image" />
+            )}
+          </section>
+
+
+          <form className='add-new-form' onSubmit={this.handleSubmit}>
 
           <label> Title
         <input
@@ -64,9 +136,18 @@ class AddNewSite extends Component {
               required
             />
           </label>
-          <button className='note-button' type='submit'>Add Note</button>
+          <button className='note-button' type='submit'>Add New Site</button>
 
         </form>
+
+
+
+
+
+
+
+
+
       </section>
     );
   }
