@@ -1,39 +1,44 @@
 import React, { Component } from 'react';
+import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
+// let cl = new Cloudinary.Cloudinary({cloud_name: "secret-campsites", secure: true, names: 'snake_case'});
+
+
 
 class AddNewSite extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: '',
-      content: '', 
+      content: '',
       keyword: ''
     };
   }
 
   handleSubmit = (event) => {
-    event.preventDefault(); 
-    const newSitePayload  = {
-      title: this.state.title, 
-      content: this.state.content, 
-      keyword:this.state.keyword,
-    }
-    console.log(newSitePayload)
-}
+    event.preventDefault();
+    const newSitePayload = {
+      title: this.state.title,
+      content: this.state.content,
+      keyword: this.state.keyword,
+    };
+    console.log(newSitePayload);
+  };
 
-// what needed for database: 
+  // what needed for database: 
   // * image(image)
-    // * title (note title)
-    // * content (note text)
-    // * keyword (keyword for maps)
-  
-  
-  
-  
+  // * title (note title)
+  // * content (note text)
+  // * keyword (keyword for maps)
+
+
+// need a function to set up publicID to be attached to location_id
+// possibly set set then able to call it as this.state 
 
   render() {
     return (
       <section className='add-new-site'>
         <form className='add-new-form' onSubmit={this.handleSubmit}>
+        <Image cloudName="secret-campsites" publicId="sample" width="300" crop="scale" />
 
           <label> Title
         <input

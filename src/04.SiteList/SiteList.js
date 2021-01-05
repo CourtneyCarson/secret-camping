@@ -3,6 +3,7 @@ import AddNewSite from '../07.AddSiteForm/AddSiteForm';
 import TokenService from '../services/token-service';
 import config from '../config';
 import './SiteList.css';
+// import FilterDropDown from '../FilterDropdown/FilterDropDown';
 
 export default class SiteList extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export default class SiteList extends Component {
     };
   }
 
-  // fetch req 
+  // fetch req for all locations
   componentDidMount() {
     let URL = `${config.API_ENDPOINT}/location`;
 
@@ -31,7 +32,10 @@ export default class SiteList extends Component {
       .catch((error) => console.log(error));
   }
 
+  // fetch for saving locations to user account 
+  // will need a handle submit for the save button 
 
+  // potentially add the star rating to the cards also 
 
 
   render() {
@@ -41,33 +45,38 @@ export default class SiteList extends Component {
       <main>
         <div className="list-page">
           <h1 className='list-h1'>List</h1>
+          {/* <div> <FilterDropDown/> </div> */}
           <h4>{this.state.location.map((item, key) => {
+                let iFrameUrl = `https://maps.google.com/maps?q=${item.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+
             return (
               <div className='site-list' key={key}>
+
+                <iframe
+                  className="item-image"
+                  width="100%"
+                  height="350"
+                  id="google_map"
+                  src={iFrameUrl}
+                  frameBorder="0"
+                  scrolling="no"
+                  alt={item.keyword}
+                  title='title'
+                ></iframe>
+
                 <p>{item.title}</p>
                 <p>{item.content}</p>
-                <img src={item.image} alt ='location'/>
+                <img src={item.image} alt='location' />
                 <p>{item.keyword}</p>
                 <p>{item.location}</p>
+                <button className='save-button' type='submit'> Save </button>
               </div>
             );
           })}</h4>
           {/* potentially adding a map onto this page */}
-          {/* <div>
-            <iframe className='map'
-              src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3235578.585437468!2d-118.98925682715422!3d37.63169239234933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sCalifornia%20Ghost%20Towns!5e0!3m2!1sen!2sus!4v1609190060554!5m2!1sen!2sus"
-              width="400"
-              height="300"
-              frameborder="0"
-              // style="border:0;"
-              allowfullscreen=""
-              aria-hidden="false"
-              tabindex="0"
-              title='map'>
-            </iframe>
-          </div> */}
 
-      
+
+
           <div> <AddNewSite /></div>
 
         </div>
