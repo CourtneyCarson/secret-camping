@@ -24,12 +24,9 @@ class FormWizard extends React.Component {
   };
 
 
-  // comp did mount? 
-  // post form 
-  // postForm(locations_id) {
+ 
   postForm(title, content, keyword, imageUrl) {
     let URL = `${config.API_ENDPOINT}/location`;
-    // let locations_id = (this.state.title, this.state.content, this.state.keyword, this.state.imageUrl, this.state.imageAlt);
 
     return fetch(URL, {
       method: 'POST',
@@ -42,7 +39,6 @@ class FormWizard extends React.Component {
         content,
         keyword,
         image: imageUrl,
-        // locations_id,
       }),
     })
       .then(res => {
@@ -55,20 +51,10 @@ class FormWizard extends React.Component {
   }
 
 
-
+// submit form + after successful submission, re-route to step 1 
   handleSubmit = event => {
     event.preventDefault();
-    // const { title, content, keyword, imageUrl, imageAlt } = this.state;
     const { title, content, keyword } = event.target;
-    // const {locations_id} = event.target
-    // alert(`Your new site submission: \n 
-    //        Title: ${title} \n 
-    //        Content: ${content} \n
-    //        Keyword: ${keyword}
-    //        imageUrl: ${imageUrl}
-    //        imageAlt: ${imageAlt}
-    //        `);
-    // let currentUserId = TokenService.getUserId();
     if (this.state.currentStep !== 3) {
       this.postForm(title.value, content.value, keyword.value, this.state.imageUrl)
         .then(() => this.setState({
@@ -80,7 +66,6 @@ class FormWizard extends React.Component {
       });
     }
   };
-
 
 
 
@@ -130,31 +115,6 @@ class FormWizard extends React.Component {
     }
     return null;
   }
-  /////////// helper function for cloudinary upload, not widget: /////////////////////////
-  //  handleImageUpload = () => {
-  //   const { files } = document.querySelector('input[type="file"]')
-  //   const formData = new FormData();
-  //   formData.append('file', files[0]);
-  //   // replace this with your upload preset name
-  //   formData.append('upload_preset', 'k6ol9ng3');
-  //   const options = {
-  //     method: 'POST',
-
-  //     body: formData,
-  //   };
-
-  //   // replace cloudname with your Cloudinary cloud_name
-  //   return fetch('https://api.Cloudinary.com/v1_1/secret-campsites/image/upload', options)
-  //     .then(res => res.json())
-  //     .then(res => console.log(res))
-  //     .then(res => {
-  //       this.setState({
-  //         imageUrl: res.secure_url,
-  //         imageAlt: `An image of ${res.original_filename}`
-  //       });
-  //     })
-  //     .catch(err => console.log(err));
-  // };
 
 
   // for widget:
@@ -229,13 +189,10 @@ function Step1(props) {
     return null;
   }
 
-
   return (
-
     <section className='step1'>
       <section className='left-side'>
         <button type='button' className='btn widget-btn' onClick={props.openWidget}>Upload Via Widget</button>
-
       </section>
 
       <section className='right-side'>
@@ -245,7 +202,6 @@ function Step1(props) {
         )}
       </section>
     </section>
-
   );
 }
 
