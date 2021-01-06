@@ -1,7 +1,8 @@
 import React from 'react';
+import config from '../config';
+import TokenService from '../services/token-service';
 
-
-class MasterForm extends React.Component {
+class FormWizard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,6 +12,7 @@ class MasterForm extends React.Component {
       keyword: '',
       imageUrl: null,
       imageAlt: null,
+      error: null,
     };
   }
 
@@ -21,17 +23,60 @@ class MasterForm extends React.Component {
     });
   };
 
+
+  // comp did mount? 
+  // post form 
+  // postForm(locations_id) {
+  postForm(title,content,keyword, imageUrl) {
+    let URL = `${config.API_ENDPOINT}/location`;
+    // let locations_id = (this.state.title, this.state.content, this.state.keyword, this.state.imageUrl, this.state.imageAlt);
+
+    return fetch(URL, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+      'body': JSON.stringify({
+        title,
+        content, 
+        keyword, 
+        image: imageUrl,
+        // locations_id,
+      }),
+    })
+      .then(res => {
+        return res.json();
+      })
+      .catch(err => {
+        console.log(err);
+        this.setState({ error: err });
+      });
+  }
+
+ 
+
   handleSubmit = event => {
     event.preventDefault();
-    const { title, content, keyword, imageUrl, imageAlt } = this.state;
-    alert(`Your new site submission: \n 
-           Title: ${title} \n 
-           Content: ${content} \n
-           Keyword: ${keyword}
-           imageUrl: ${imageUrl}
-           imageAlt: ${imageAlt}
-           `);
+    // const { title, content, keyword, imageUrl, imageAlt } = this.state;
+    const { title, content, keyword } = event.target;
+    // const {locations_id} = event.target
+    // alert(`Your new site submission: \n 
+    //        Title: ${title} \n 
+    //        Content: ${content} \n
+    //        Keyword: ${keyword}
+    //        imageUrl: ${imageUrl}
+    //        imageAlt: ${imageAlt}
+    //        `);
+    // let currentUserId = TokenService.getUserId();
+
+    this.postForm(title.value, content.value, keyword.value, this.state.imageUrl).then(() => this.setState({
+      currentStep: 1
+    }));
   };
+
+
+
 
   _next = () => {
     let currentStep = this.state.currentStep;
@@ -68,7 +113,7 @@ class MasterForm extends React.Component {
 
   nextButton() {
     let currentStep = this.state.currentStep;
-    if (currentStep < 3) {
+    if (currentStep < 2) {
       return (
         <button
           className='btn btn-primary float-right'
@@ -117,6 +162,7 @@ class MasterForm extends React.Component {
       (error, result) => {
         console.log(result);
 
+        // added if statement in so that it would only update state when successful. 
         if (result.event === 'success')
           this.setState({
             imageUrl: result.info.secure_url,
@@ -133,7 +179,7 @@ class MasterForm extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1>React Wizard Form 🧙‍♂️</h1>
+        <h1>Add A New Site 🧙‍♂️</h1>
         <p>Step {this.state.currentStep} </p>
 
         <form onSubmit={this.handleSubmit}>
@@ -169,7 +215,7 @@ class MasterForm extends React.Component {
 }
 
 
-//// figure out how to get button to move you to next step once completed - do I use props to show image? //////// 
+
 
 
 ////////// STEP 1 CLOUDINARY UPLOAD ///////////////////
@@ -198,6 +244,8 @@ function Step1(props) {
   );
 }
 
+
+//// rest of information//// 
 function Step2(props) {
   if (props.currentStep !== 2) {
     return null;
@@ -262,4 +310,4 @@ function Step2(props) {
 //   );
 //}
 
-export default MasterForm;
+export default FormWizard;

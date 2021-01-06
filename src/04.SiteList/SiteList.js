@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import TokenService from '../services/token-service';
 import config from '../config';
 import './SiteList.css';
-import MasterForm from '../07.AddSiteForm/FormWizard';
+import FormWizard from '../07.AddSiteForm/FormWizard';
 // import FilterDropDown from '../FilterDropdown/FilterDropDown';
 
 export default class SiteList extends Component {
@@ -49,7 +49,7 @@ export default class SiteList extends Component {
 
           <h1 className='list-h1'>List</h1>
 
-          <div><MasterForm/> </div>
+          <div><FormWizard/> </div>
 
           {/* <div> <AddNewSite /></div> */}
 
