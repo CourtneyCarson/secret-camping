@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import AddNewSite from '../07.AddSiteForm/AddSiteForm';
+// import AddNewSite from '../07.AddSiteForm/AddSiteForm';
 import TokenService from '../services/token-service';
 import config from '../config';
 import './SiteList.css';
-import MasterForm from '../07.AddSiteForm/MasterWizard';
+import MasterForm from '../07.AddSiteForm/FormWizard';
 // import FilterDropDown from '../FilterDropdown/FilterDropDown';
 
 export default class SiteList extends Component {

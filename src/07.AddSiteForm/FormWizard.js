@@ -81,7 +81,7 @@ class MasterForm extends React.Component {
   }
   /////////// helper function for cloudinary upload, not widget: /////////////////////////
   //  handleImageUpload = () => {
-  //   const { files } = document.querySelector('input[type='file']');
+  //   const { files } = document.querySelector('input[type="file"]')
   //   const formData = new FormData();
   //   formData.append('file', files[0]);
   //   // replace this with your upload preset name
@@ -95,7 +95,7 @@ class MasterForm extends React.Component {
   //   // replace cloudname with your Cloudinary cloud_name
   //   return fetch('https://api.Cloudinary.com/v1_1/secret-campsites/image/upload', options)
   //     .then(res => res.json())
-  //     // .then(res => console.log(res))
+  //     .then(res => console.log(res))
   //     .then(res => {
   //       this.setState({
   //         imageUrl: res.secure_url,
@@ -115,10 +115,13 @@ class MasterForm extends React.Component {
         uploadPreset: 'k6ol9ng3',
       },
       (error, result) => {
-        this.setState({
-          imageUrl: result.info.secure_url,
-          imageAlt: `An image of ${result.info.original_filename}`
-        });
+        console.log(result);
+
+        if (result.event === 'success')
+          this.setState({
+            imageUrl: result.info.secure_url,
+            imageAlt: `An image of ${result.info.original_filename}`
+          });
       },
     ).open(); // open up the widget after creation
   };
@@ -142,6 +145,7 @@ class MasterForm extends React.Component {
             handleChange={this.handleChange}
             handleImageUpload={this.handleImageUpload}
             openWidget={this.openWidget}
+            imageUrl={this.state.imageUrl}
           />
           <Step2
             currentStep={this.state.currentStep}
@@ -173,24 +177,22 @@ function Step1(props) {
   if (props.currentStep !== 1) {
     return null;
   }
+
+
   return (
+
     <section className='step1'>
       <section className='left-side'>
-        {/* <div className='form-group'>
-          <input type='file' />
-        </div> */}
-
-        {/* <button type='button' className='btn' onClick={props.handleImageUpload} >Submit</button> */}
         <button type='button' className='btn widget-btn' onClick={props.openWidget}>Upload Via Widget</button>
 
       </section>
 
       <section className='right-side'>
-      <p>The resulting image will be displayed here</p>
-      {props.imageUrl && (
-        <img src={props.imageUrl} alt={props.imageAlt} className='displayed-image' />
-      )}
-    </section>
+        <p>The resulting image will be displayed here</p>
+        {props.imageUrl && (
+          <img src={props.imageUrl} alt={props.imageAlt} className='displayed-image' />
+        )}
+      </section>
     </section>
 
   );
