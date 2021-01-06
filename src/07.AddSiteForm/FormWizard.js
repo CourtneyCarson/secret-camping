@@ -27,7 +27,7 @@ class FormWizard extends React.Component {
   // comp did mount? 
   // post form 
   // postForm(locations_id) {
-  postForm(title,content,keyword, imageUrl) {
+  postForm(title, content, keyword, imageUrl) {
     let URL = `${config.API_ENDPOINT}/location`;
     // let locations_id = (this.state.title, this.state.content, this.state.keyword, this.state.imageUrl, this.state.imageAlt);
 
@@ -39,8 +39,8 @@ class FormWizard extends React.Component {
       },
       'body': JSON.stringify({
         title,
-        content, 
-        keyword, 
+        content,
+        keyword,
         image: imageUrl,
         // locations_id,
       }),
@@ -54,7 +54,7 @@ class FormWizard extends React.Component {
       });
   }
 
- 
+
 
   handleSubmit = event => {
     event.preventDefault();
@@ -69,10 +69,16 @@ class FormWizard extends React.Component {
     //        imageAlt: ${imageAlt}
     //        `);
     // let currentUserId = TokenService.getUserId();
-
-    this.postForm(title.value, content.value, keyword.value, this.state.imageUrl).then(() => this.setState({
-      currentStep: 1
-    }));
+    if (this.state.currentStep !== 3) {
+      this.postForm(title.value, content.value, keyword.value, this.state.imageUrl)
+        .then(() => this.setState({
+          currentStep: 3
+        }));
+    } else {
+      this.setState({
+        currentStep: 1
+      });
+    }
   };
 
 
@@ -200,11 +206,10 @@ class FormWizard extends React.Component {
             content={this.state.content}
             keyword={this.state.keyword}
           />
-          {/* <Step3
+          <Step3
             currentStep={this.state.currentStep}
             handleChange={this.handleChange}
-            password={this.state.password}
-          /> */}
+          />
           {this.previousButton()}
           {this.nextButton()}
 
@@ -287,27 +292,18 @@ function Step2(props) {
   );
 }
 
-// function Step3(props) {
-//   if (props.currentStep !== 3) {
-//     return null;
-//   }
-//   return (
-//     <React.Fragment>
-//       <div className='form-group'>
-//         <label htmlFor='password'>Password</label>
-//         <input
-//           className='form-control'
-//           id='password'
-//           name='password'
-//           type='password'
-//           placeholder='Enter password'
-//           value={props.password}
-//           onChange={props.handleChange}
-//         />
-//       </div>
-//       <button className='btn btn-success btn-block'>Sign up</button>
-//     </React.Fragment>
-//   );
-//}
+function Step3(props) {
+  if (props.currentStep !== 3) {
+    return null;
+  }
+  return (
+    <React.Fragment>
+      <div className='form-group'>
+        <h4> Success! </h4>
+      </div>
+      <button className='btn btn-success btn-block'>Submit Another</button>
+    </React.Fragment>
+  );
+}
 
 export default FormWizard;
