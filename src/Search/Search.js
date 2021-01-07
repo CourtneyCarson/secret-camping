@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import config from '../config';
 
-class FilterSearch extends Component {
+class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,14 +20,14 @@ class FilterSearch extends Component {
     });
   }
 
-  validateSearchTerm() {
-    const searchTerm = this.state.searchTerm.value.trim();
-    if (searchTerm.length === 0) {
-      return 'Search Term Is Required';
-    } else if (searchTerm.length < 2) {
-      return 'Search Term must be at least 2 characters long';
-    }
-  }
+  // validateSearchTerm() {
+  //   const searchTerm = this.state.searchTerm.value.trim();
+  //   if (searchTerm.length === 0) {
+  //     return 'Search Term Is Required';
+  //   } else if (searchTerm.length < 2) {
+  //     return 'Search Term must be at least 2 characters long';
+  //   }
+  // }
 
   // 
   searchForm = (event) => {
@@ -38,7 +38,7 @@ class FilterSearch extends Component {
     let getLocationBySearchTerm = `${config.API_ENDPOINT}/location/keyword/${searchTerm.value}`;
 
     fetch(getLocationBySearchTerm)
-      .then((locBySearch) => locBySearch.json())
+      .then((loc) => loc.json())
       .then((locBySearch) => {
         console.log(locBySearch);
         this.setState({
@@ -55,7 +55,6 @@ class FilterSearch extends Component {
 
 
 
-
   render() {
 
     const msg = this.state.error ? <p>
@@ -63,13 +62,14 @@ class FilterSearch extends Component {
     </p> :
       <div></div>;
 
+    // find way to only show this after searching - not all the time: 
     // show no items by default
     let showLocationsPage = '';
-    if (this.state.locations.length === 0) {
-      showLocationsPage = <p> No Locations Here</p>;
-    }
+    // if (this.state.locations.length === 0) {
+    //   showLocationsPage = <p> No Locations Here</p>;
+    // }
     //if there are items - display details for each: 
-    else {
+    // else {
       showLocationsPage = this.state.locations.map((location, key) => {
         let iFrameUrl = `https://maps.google.com/maps?q=${location.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
 
@@ -93,7 +93,7 @@ class FilterSearch extends Component {
           </div>
         );
       });
-    }
+    // }
 
 
 
@@ -127,4 +127,4 @@ class FilterSearch extends Component {
 
 
 
-export default FilterSearch;
+export default Search;

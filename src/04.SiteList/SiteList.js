@@ -4,7 +4,7 @@ import TokenService from '../services/token-service';
 import config from '../config';
 import './SiteList.css';
 import FormWizard from '../07.AddSiteForm/FormWizard';
-import FilterSearch from '../FilterSearch/FilterSearch';
+import Search from '../Search/Search';
 
 export default class SiteList extends Component {
   constructor(props) {
@@ -50,7 +50,7 @@ export default class SiteList extends Component {
           <h1 className='list-h1'>List</h1>
 
           <div><FormWizard /> </div>
-          <div><FilterSearch /></div>
+          <div><Search /></div>
 
           {/* google map */}
           <h4>{this.state.location.map((item, key) => {
@@ -63,14 +63,14 @@ export default class SiteList extends Component {
                 <p>{item.content}</p>
                 <img src={item.image} alt='location' />
                 <p>{item.keyword}</p>
-                {/* <p>{item.location}</p> */}
+                <p>{item.location}</p>
                 <button className='save-button' type='submit'> Save </button>
 
                 {/* google map */}
                 <iframe
                   className="item-image"
-                  width="100%"
-                  height="350"
+                  width="50%"
+                  height="250"
                   id="google_map"
                   src={iFrameUrl}
                   frameBorder="0"
