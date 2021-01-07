@@ -51,9 +51,7 @@ export default class SiteList extends Component {
 
           <div><FormWizard /> </div>
           <div><FilterSearch /></div>
-          {/* <div> <AddNewSite /></div> */}
 
-          {/* <div> <FilterDropDown/> </div> */}
           {/* google map */}
           <h4>{this.state.location.map((item, key) => {
             let iFrameUrl = `https://maps.google.com/maps?q=${item.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
@@ -84,7 +82,6 @@ export default class SiteList extends Component {
               </div>
             );
           })}</h4>
-          {/* potentially adding a map onto this page */}
 
         </div>
       </main>

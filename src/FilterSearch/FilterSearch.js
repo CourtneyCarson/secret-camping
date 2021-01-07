@@ -86,16 +86,32 @@ class FilterSearch extends Component {
     else {
       showLocationsPage = this.state.locations.map((location, key) => {
         if (location) {
+          let iFrameUrl = `https://maps.google.com/maps?q=${location.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+
+          // map render on filter 
+          
           return (
             <div key={key}>
               <p>{location.title}</p>
               <p>{location.content}</p>
               <p>{location.keyword}</p>
-              <p>{location.image}</p>
+              <img src={location.image} alt='location' />
+              <iframe
+                  className="item-image"
+                  width="100%"
+                  height="350"
+                  id="google_map"
+                  src={iFrameUrl}
+                  frameBorder="0"
+                  scrolling="no"
+                  alt={location.keyword}
+                  title='title'
+                ></iframe>
+              
             </div>
           );
         }
-        // else return null
+        else return null
       });
     }
 
