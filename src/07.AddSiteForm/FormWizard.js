@@ -1,6 +1,7 @@
 import React from 'react';
 import config from '../config';
 import TokenService from '../services/token-service';
+// import './FormWizard.css'
 
 class FormWizard extends React.Component {
   constructor(props) {
@@ -61,6 +62,8 @@ class FormWizard extends React.Component {
           currentStep: 3
         }));
     } else {
+
+      // figure out how to get page to refresh so uploaded image doesn't still show. 
       this.setState({
         currentStep: 1
       });

@@ -4,7 +4,7 @@ import TokenService from '../services/token-service';
 import config from '../config';
 import './SiteList.css';
 import FormWizard from '../07.AddSiteForm/FormWizard';
-// import FilterDropDown from '../FilterDropdown/FilterDropDown';
+import FilterSearch from '../FilterSearch/FilterSearch';
 
 export default class SiteList extends Component {
   constructor(props) {
@@ -49,8 +49,8 @@ export default class SiteList extends Component {
 
           <h1 className='list-h1'>List</h1>
 
-          <div><FormWizard/> </div>
-
+          <div><FormWizard /> </div>
+          <div><FilterSearch /></div>
           {/* <div> <AddNewSite /></div> */}
 
           {/* <div> <FilterDropDown/> </div> */}
@@ -65,7 +65,7 @@ export default class SiteList extends Component {
                 <p>{item.content}</p>
                 <img src={item.image} alt='location' />
                 <p>{item.keyword}</p>
-                <p>{item.location}</p>
+                {/* <p>{item.location}</p> */}
                 <button className='save-button' type='submit'> Save </button>
 
                 {/* google map */}
