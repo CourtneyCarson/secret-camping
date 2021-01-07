@@ -5,7 +5,6 @@ class FilterSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // locations, locations id? 
       locations: [],
       searchTerm: {
         value: '',
@@ -13,20 +12,6 @@ class FilterSearch extends Component {
       },
       error: null
     };
-  }
-
-  componentDidMount() {
-    let getLocations = `${config.API_ENDPOINT}/location/`;
-
-    fetch(getLocations)
-      .then((locationInList) => locationInList.json())
-      .then((locationInList) => {
-        this.setState({
-          locations: [locationInList],
-        });
-        console.log(this.state);
-      })
-      .catch((error) => this.setState({ error }));
   }
 
   changeSearchTerm(searchTerm) {
@@ -64,16 +49,17 @@ class FilterSearch extends Component {
       .catch((error) => this.setState({ error }));
   };
 
+  // to render page based on either search items or not :
+  /// ternary button that swaps between two - state button set state to search - put on parent of both filter + sitelist , conditionaly
+  //render based on state 
 
-  // show list of locations after search complete
-  showAll = () => {
-    window.location = '/list';
-  };
+
+
 
   render() {
 
     const msg = this.state.error ? <p>
-      {this.state.error}
+      {this.state.error.error}
     </p> :
       <div></div>;
 
@@ -85,33 +71,27 @@ class FilterSearch extends Component {
     //if there are items - display details for each: 
     else {
       showLocationsPage = this.state.locations.map((location, key) => {
-        if (location) {
-          let iFrameUrl = `https://maps.google.com/maps?q=${location.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+        let iFrameUrl = `https://maps.google.com/maps?q=${location.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
 
-          // map render on filter 
-          
-          return (
-            <div key={key}>
-              <p>{location.title}</p>
-              <p>{location.content}</p>
-              <p>{location.keyword}</p>
-              <img src={location.image} alt='location' />
-              <iframe
-                  className="item-image"
-                  width="100%"
-                  height="350"
-                  id="google_map"
-                  src={iFrameUrl}
-                  frameBorder="0"
-                  scrolling="no"
-                  alt={location.keyword}
-                  title='title'
-                ></iframe>
-              
-            </div>
-          );
-        }
-        else return null
+        return (
+          <div key={key}>
+            <p>{location.title}</p>
+            <p>{location.content}</p>
+            <p>{location.keyword}</p>
+            <img src={location.image} alt='location' />
+            <iframe
+              className="item-image"
+              width="100%"
+              height="350"
+              id="google_map"
+              src={iFrameUrl}
+              frameBorder="0"
+              scrolling="no"
+              alt={location.keyword}
+              title='title'
+            ></iframe>
+          </div>
+        );
       });
     }
 
@@ -140,10 +120,7 @@ class FilterSearch extends Component {
 
         </section>
       </div>
-
-      
-    )
-
+    );
   }
 }
 
