@@ -21,6 +21,8 @@ class NoteForm extends Component {
       location_id: this.props.locId,
     };
 
+
+    
     let URL = `${config.API_ENDPOINT}/comments/${comment.location_id}`;
     return fetch(URL, {
       method: 'POST',
