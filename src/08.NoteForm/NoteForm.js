@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import config from '../config';
+import TokenService from '../services/token-service';
 
 class NoteForm extends Component {
   constructor(props) {
@@ -9,6 +11,41 @@ class NoteForm extends Component {
     };
   }
 
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    //better to call payload instead of note
+    const comment = {
+      title: this.state.title,
+      content: this.state.content,
+      location_id: this.props.locId,
+    };
+
+    let URL = `${config.API_ENDPOINT}/comments/${comment.location_id}`;
+    return fetch(URL, {
+      method: 'POST',
+      body: JSON.stringify(comment),
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((error) => {
+            throw error;
+          });
+        }
+        return res.json();
+      })
+      .then((results) => {
+        console.log(results);
+        window.location = '/account';
+      })
+      .catch((error) => {
+        console.log({ error });
+      });
+  };
 
   render() {
     return (
