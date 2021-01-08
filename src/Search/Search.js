@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import config from '../config';
+import './Search.css';
 
 class Search extends Component {
   constructor(props) {
@@ -74,15 +75,15 @@ class Search extends Component {
         let iFrameUrl = `https://maps.google.com/maps?q=${location.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
 
         return (
-          <div key={key}>
+          <div className='search-results-list' key={key}>
             <p>{location.title}</p>
             <p>{location.content}</p>
             <p>{location.keyword}</p>
             <img src={location.image} alt='location' />
             <iframe
               className="item-image"
-              width="100%"
-              height="350"
+              width="50%"
+              height="250"
               id="google_map"
               src={iFrameUrl}
               frameBorder="0"

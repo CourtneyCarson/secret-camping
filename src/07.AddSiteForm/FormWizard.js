@@ -25,7 +25,7 @@ class FormWizard extends React.Component {
   };
 
 
- 
+
   postForm(title, content, keyword, imageUrl) {
     let URL = `${config.API_ENDPOINT}/location`;
 
@@ -52,15 +52,18 @@ class FormWizard extends React.Component {
   }
 
 
-// submit form + after successful submission, re-route to step 1 
+  // submit form + after successful submission, re-route to step 1 
   handleSubmit = event => {
     event.preventDefault();
     const { title, content, keyword } = event.target;
     if (this.state.currentStep !== 3) {
       this.postForm(title.value, content.value, keyword.value, this.state.imageUrl)
-        .then(() => this.setState({
-          currentStep: 3
-        }));
+        .then(() => {
+          this.setState({
+            currentStep: 3
+          });
+          window.location = '/list'
+        });
     } else {
 
       // figure out how to get page to refresh so uploaded image doesn't still show. 
