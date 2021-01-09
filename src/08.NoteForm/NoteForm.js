@@ -14,14 +14,14 @@ class NoteForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    //better to call payload instead of note
+    //better to call payload instead of comment
     const comment = {
       title: this.state.title,
       content: this.state.content,
       location_id: this.props.locId,
     };
 
-
+   
     
     let URL = `${config.API_ENDPOINT}/comments/${comment.location_id}`;
     return fetch(URL, {
