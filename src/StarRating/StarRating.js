@@ -75,7 +75,7 @@ class StarRating extends Component {
 
 
   render() {
-    // NEED TO HANDLE ERROR: let error = this.state.error
+    // STILL NEED TO HANDLE ERROR: let error = this.state.error
     let rating = Math.round(parseInt(parseFloat(this.state.rating.average_rating))) || 1;
 
     return (
@@ -84,8 +84,11 @@ class StarRating extends Component {
         {[1, 2, 3, 4, 5].map(num => {
           let star = rating >= num ? 'full-star' : 'empty-star';
 
-          return <div className={star}>*</div>;
-
+          return <div
+            className={star}
+            key={num}>
+            *
+            </div>;
         })}
 
         <select name='ratings_select'>
@@ -96,7 +99,6 @@ class StarRating extends Component {
                 value={num}
               >{num}
               </option>
-
             );
           })}
 
