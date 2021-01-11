@@ -1,3 +1,7 @@
-.star {
+.empty-star {
   color: gray;
+}
+
+.full-star {
+  color: yellow;
 }

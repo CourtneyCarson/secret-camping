@@ -4,6 +4,7 @@ import config from '../config';
 import './SiteList.css';
 import FormWizard from '../07.AddSiteForm/FormWizard';
 import Search from '../Search/Search';
+import StarRating from '../StarRating/StarRating';
 
 export default class SiteList extends Component {
   constructor(props) {
@@ -123,8 +124,9 @@ export default class SiteList extends Component {
                     alt={item.keyword}
                     title='title'
                   ></iframe>
-
                 </form>
+                <StarRating id={item.id} />
+
 
               </div>
             );

@@ -1,69 +1,113 @@
 import React, { Component } from 'react';
-
-// import './star-rating.css';
+// import ReactStars from "react-rating-stars-component";
+import config from '../config';
+import TokenService from '../services/token-service';
+import './StarRating.css';
 
 class StarRating extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentRating: this.props.currentRating
+      rating: {},
+      error: null,
     };
   }
 
+
   componentDidMount() {
-    this.setRating();
+    this.fetchRating();
   }
 
-  // highlights star colors when mouse hovers
-  hoverHandler = ev => {
-    const stars = ev.target.parentElement.getElementsByClassName('star');
-    const hoverValue = ev.target.dataset.value;
-    Array.from(stars).forEach(star => {
-      star.style.color = hoverValue >= star.dataset.value ? 'yellow' : 'gray';
-    });
+  //get all ratings
+  fetchRating = () => {
+    let URL = `${config.API_ENDPOINT}/ratings/${this.props.id}`;
+
+    return fetch(URL, {
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      }
+    })
+
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          rating: data,
+        });
+      })
+      .catch((error) => console.log(error));
   };
 
-  // sets the rating 
-  setRating = ev => {
-    const stars = this.refs.rating.getElementsByClassName('star');
-    Array.from(stars).forEach(star => {
-      star.style.color =
-        this.state.currentRating >= star.dataset.value ? 'yellow' : 'gray';
-    });
+
+
+  // post rating to db
+  postForm = (event) => {
+    event.preventDefault();
+    let URL = `${config.API_ENDPOINT}/ratings/${this.props.id}`;
+    let rating = event.target.ratings_select.value;
+
+    console.log(rating, 'rating');
+
+    return fetch(URL, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+      'body': JSON.stringify({
+        stars: rating
+      }),
+    })
+      .then(res =>
+        (!res.ok) ?
+          res.json()
+            .then(event => Promise.reject(event)) :
+          res.json()
+      )
+      .then(this.fetchRating)
+      .catch(err => {
+        console.log(err);
+        this.setState({ error: err });
+      });
   };
 
-  // sets highlight to be locked in when mouse moves away
-  starClickHandler = ev => {
-    let rating = ev.target.dataset.value;
-    this.setState({ currentRating: rating }); // set state so the rating stays highlighted
-    if(this.props.onClick){
-      this.props.onClick(rating); // emit the event up to the parent
-    }
-  };
+
+
+
 
   render() {
+    // NEED TO HANDLE ERROR: let error = this.state.error
+    let rating = Math.round(parseInt(parseFloat(this.state.rating.average_rating))) || 1;
+
     return (
-      <div
-        className="rating"
-        ref="rating"
-        data-rating={this.state.currentRating}
-        onMouseOut={this.setRating}
-      >
-        {[...Array(+this.props.numberOfStars).keys()].map(n => {
-          return (
-            <span
-              className="star"
-              key={n+1}
-              data-value={n+1}
-              onMouseOver={this.hoverHandler}
-              onClick={this.starClickHandler}
-            >
-              &#9733;
-            </span>
-          );
+
+      <form onSubmit={this.postForm}>
+        {[1, 2, 3, 4, 5].map(num => {
+          let star = rating >= num ? 'full-star' : 'empty-star';
+
+          return <div className={star}>*</div>;
+
         })}
-      </div>
+
+        <select name='ratings_select'>
+          {[1, 2, 3, 4, 5].map(num => {
+            return (
+              <option
+                key={num}
+                value={num}
+              >{num}
+              </option>
+
+            );
+          })}
+
+        </select>
+        <button>Submit</button>
+
+
+
+      </form>
     );
+
   }
 }
 
