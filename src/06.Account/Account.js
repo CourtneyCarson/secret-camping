@@ -65,7 +65,7 @@ class Account extends Component {
           <div className='saved-locations'>
             {this.state.locationsByUserId.map((locByUser, key) => {
               let Comments = this.state.comments.filter(comment => {
-                return comment.location_id === locByUser.id;
+                return comment.user_location_id === locByUser.id;
               });
 
               return (
