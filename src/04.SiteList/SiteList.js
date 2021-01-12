@@ -106,30 +106,30 @@ export default class SiteList extends Component {
 
                   <form className='locations-div' onSubmit={this.handleSubmit}>
                     <div className='title-image-content'>
-                    <p className='title'>{item.title}</p>
-                    <img src={item.image} alt='location' />
+                      <p className='title'>{item.title}</p>
+                      <img src={item.image} alt='location' />
                       <p>{item.content}</p>
                       {/* <p>{item.location}</p> */}
                     </div>
-                    
-                      <div className='content-div'>
+
+                    <div className='content-div'>
                       <input type='hidden' name='locationId' value={item.id}></input>
                       <button className='save-button' type='submit'> Save </button>
                     </div>
 
                     <div className='google-map'>
                       <p>{item.keyword}</p>
-                    {/* google map */}
-                    <iframe
-                      className="item-image"
-                      width="50%"
-                      height="250"
-                      id="google_map"
-                      src={iFrameUrl}
-                      frameBorder="0"
-                      scrolling="no"
-                      alt={item.keyword}
-                      title='title'
+                      {/* google map */}
+                      <iframe
+                        className="item-image"
+                        width="50%"
+                        height="250"
+                        id="google_map"
+                        src={iFrameUrl}
+                        frameBorder="0"
+                        scrolling="no"
+                        alt={item.keyword}
+                        title='title'
                       ></iframe>
                     </div>
 

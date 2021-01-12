@@ -1,6 +1,8 @@
 .list-page {
   background-image: url('/src/images/MtStHelensFlowers_1024x1024@2x.jpg');
-  background-size: cover;
+  /* background-size: cover; */
+  /* background-repeat:   no-repeat; */
+  /* background-position: center center; */
   /* min-width: 100vh; */
   min-height: 100vh;
 }
@@ -15,7 +17,7 @@
   border: none;
   max-width: 80em;
   margin: 6em 5em 0 5em;
-  padding:2em;
+  /* padding:2em; */
 }
 
 /* .locations-div {
