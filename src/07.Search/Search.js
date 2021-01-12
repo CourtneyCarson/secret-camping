@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import config from '../config';
 import './Search.css';
+import StarRating from '../08.StarRating/StarRating';
 
 class Search extends Component {
   constructor(props) {
@@ -91,6 +92,7 @@ class Search extends Component {
               alt={location.keyword}
               title='title'
             ></iframe>
+            <StarRating />
           </div>
         );
       });

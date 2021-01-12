@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import TokenService from '../services/token-service';
 import config from '../config';
 import './SiteList.css';
-import FormWizard from '../07.AddSiteForm/FormWizard';
-import Search from '../Search/Search';
-import StarRating from '../StarRating/StarRating';
+import FormWizard from '../06.AddSiteForm/FormWizard';
+import Search from '../07.Search/Search';
+import StarRating from '../08.StarRating/StarRating';
 
 export default class SiteList extends Component {
   constructor(props) {
@@ -92,12 +92,14 @@ export default class SiteList extends Component {
 
           <h1 className='list-h1'>List</h1>
 
+          {/* upload image & add details: */}
           <div><FormWizard /> </div>
+          {/* Filter the locations: */}
           <div><Search /></div>
 
 
-          {/* google map */}
           <h4>{this.state.location.map((item, key) => {
+            // google map rendered based on keyword:
             let iFrameUrl = `https://maps.google.com/maps?q=${item.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
 
             return (
@@ -134,6 +136,7 @@ export default class SiteList extends Component {
                     </div>
 
                   </form>
+                  {/* ratings render + rate location */}
                   <StarRating id={item.id} />
 
                 </div>

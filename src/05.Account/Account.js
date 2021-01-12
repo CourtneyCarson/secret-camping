@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NoteForm from '../08.NoteForm/NoteForm';
+import NoteForm from '../10.NoteForm/NoteForm';
 import config from '../config';
 import TokenService from '../services/token-service';
 import './Account.css';
@@ -14,6 +14,7 @@ class Account extends Component {
     };
   }
 
+  // promise.all best practice, if wanted to set state with error 
   // fetch req for all users saved locations
   componentDidMount() {
     let URL = `${config.API_ENDPOINT}/userloc/user`;
@@ -46,13 +47,40 @@ class Account extends Component {
         });
       })
       .catch((error) => console.log(error));
-
   }
 
 
+//// DELTE FETCH ////////
+handleClickDelete = (commentId) => {
+  console.log(commentId);
+  fetch(`${config.API_ENDPOINT}/comments/${commentId}`, {
+    method: "DELETE",
+    headers: {
+      "content-type": "application/json",
+    },
+  })
+    .then((res) => {
+      if (!res.ok) return res.json().then((e) => Promise.reject(e));
 
+      return res;
+    })
+    .then(() => {
+     this.handleDeleteComment(commentId)
+    })
+    .catch((error) => {
+      console.error({ error });
+    });
+};
+
+  handleDeleteComment = (commentId) => {
+    console.log('delete button pressed')
+    this.setState({
+      comments: this.state.comments.filter((comment) => comment.id !== commentId),
+  })
+}
 
   render() {
+
     return (
       <main>
         <div className='accounts-page'>
@@ -84,6 +112,9 @@ class Account extends Component {
                         <div className='comments-inside' key={key}>
                           <h3>{comment.title}</h3>
                           <p>{comment.content}</p>
+
+                          {/* bc in the map can access comment.id so create a new function */}
+                          <button onClick={() => this.handleClickDelete(comment.id)}>Delete</button>
                         </div>
                       );
                     })}

@@ -6,7 +6,7 @@ import SiteList from './04.SiteList/SiteList';
 import LogIn from './02.LogIn/LogIn';
 import SignUp from './03.SignUp/SignUp';
 import NavBar from './09.NavBar/NavBar';
-import Account from './06.Account/Account';
+import Account from './05.Account/Account';
 
 class App extends Component {
   render() {

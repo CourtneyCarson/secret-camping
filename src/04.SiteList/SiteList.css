@@ -42,12 +42,12 @@
   flex-direction: row;
 } */
 
-.title {
-  /* flex-direction: row; */
+/* .title {
+  flex-direction: row;
   align-content: center;
 }
 
 .title-image-content {
   display: flex;
   flex-direction: column;
-}
+} */
