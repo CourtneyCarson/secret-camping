@@ -18,6 +18,34 @@
   padding:2em;
 }
 
+/* .locations-div {
+  display: flex;
+  flex-direction: column;
+} */
 
+/* .locations-div p {
+  display: flex;
+  flex-direction: column;
+} */
 
+/* .content-div {
+  display: flex;
+  flex: 1;
+} */
 
+/* .google-map {
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  flex-direction: row;
+} */
+
+.title {
+  /* flex-direction: row; */
+  align-content: center;
+}
+
+.title-image-content {
+  display: flex;
+  flex-direction: column;
+}

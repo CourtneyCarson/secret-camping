@@ -4,7 +4,8 @@ import config from '../config';
 import TokenService from '../services/token-service';
 import './StarRating.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTree } from '@fortawesome/free-solid-svg-icons';
+// import { faTree } from '@fortawesome/free-solid-svg-icons';
+import { faCampground } from '@fortawesome/free-solid-svg-icons';
 
 
 class StarRating extends Component {
@@ -82,39 +83,37 @@ class StarRating extends Component {
     let rating = Math.round(parseInt(parseFloat(this.state.rating.average_rating))) || 1;
 
     return (
-<>
-      <p>Average Rating:</p>
-      <form onSubmit={this.postForm}>
-        {[1, 2, 3, 4, 5].map(num => {
-          let star = rating >= num ? 'full-star' : 'empty-star';
-
-          return <div className={star} key={num}>
-
-            <FontAwesomeIcon icon={faTree} />
-
-          </div>;
-
-
-        })}
-
-        <select name='ratings_select'>
+      <>
+        <p>Average Rating:</p>
+        <form onSubmit={this.postForm}>
           {[1, 2, 3, 4, 5].map(num => {
-            return (
-              <option
-                key={num}
-                value={num}
-              >{num}
-              </option>
-            );
+            let star = rating >= num ? 'full-star' : 'empty-star';
+
+            return <div className={star} key={num}>
+
+              {/* <FontAwesomeIcon icon={faTree} /> */}
+              <FontAwesomeIcon icon={faCampground} />
+
+            </div>;
           })}
 
-        </select>
-        <button>Submit</button>
+          <select name='ratings_select'>
+            {[1, 2, 3, 4, 5].map(num => {
+              return (
+                <option
+                  key={num}
+                  value={num}
+                >{num}
+                </option>
+              );
+            })}
+          </select>
 
+          <button>Submit</button>
 
-
-      </form>
-   </> );
+        </form>
+      </>
+    );
 
   }
 }
