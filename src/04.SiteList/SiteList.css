@@ -6,6 +6,7 @@
 }
 
 .site-list {
+  /* background-image: url('/src/images/transparent\ \(1\).jpg'); */
   background:rgba(255,255,255, 0.5);
   display:flex; 
   flex-direction: column; 
@@ -16,3 +17,7 @@
   margin: 6em 5em 0 5em;
   padding:2em;
 }
+
+
+
+

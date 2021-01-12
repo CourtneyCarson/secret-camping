@@ -95,6 +95,7 @@ export default class SiteList extends Component {
           <div><FormWizard /> </div>
           <div><Search /></div>
 
+          
           {/* google map */}
           <h4>{this.state.location.map((item, key) => {
             let iFrameUrl = `https://maps.google.com/maps?q=${item.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed`;

@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import config from '../config';
 import TokenService from '../services/token-service';
 import './StarRating.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTree } from '@fortawesome/free-solid-svg-icons';
+
 
 class StarRating extends Component {
   constructor(props) {
@@ -79,16 +82,19 @@ class StarRating extends Component {
     let rating = Math.round(parseInt(parseFloat(this.state.rating.average_rating))) || 1;
 
     return (
-
+<>
+      <p>Average Rating:</p>
       <form onSubmit={this.postForm}>
         {[1, 2, 3, 4, 5].map(num => {
           let star = rating >= num ? 'full-star' : 'empty-star';
 
-          return <div
-            className={star}
-            key={num}>
-            *
-            </div>;
+          return <div className={star} key={num}>
+
+            <FontAwesomeIcon icon={faTree} />
+
+          </div>;
+
+
         })}
 
         <select name='ratings_select'>
@@ -108,7 +114,7 @@ class StarRating extends Component {
 
 
       </form>
-    );
+   </> );
 
   }
 }

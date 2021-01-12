@@ -3,5 +3,10 @@
 }
 
 .full-star {
-  color: yellow;
+  color: darkolivegreen;
+}
+
+.star {
+  display: flex;
+  flex-direction: row;
 }

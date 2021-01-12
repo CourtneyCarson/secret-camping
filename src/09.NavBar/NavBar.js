@@ -21,14 +21,16 @@ export default class NavBar extends React.Component {
       <header className='nav-bar'>
         <nav className='nav-link'>
           {/* <div className='nav-words'> */}
-          <Route exact path={['/list', '/log-out']} render={() => {
+          <Route exact path={['/list', '/log-out', '/account']} render={() => {
             return (
               <>
+                <Link to='/list'>Sites</Link>
                 <Link to='/account'>Account</Link>
                 <Link to="/" onClick={this.logOutClick}>Log Out</Link>
               </>
             );
           }} />
+
         </nav>
       </header>
     );
