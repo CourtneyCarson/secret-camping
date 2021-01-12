@@ -14,7 +14,7 @@ class Account extends Component {
     };
   }
 
-  // promise.all best practice, if wanted to set state with error 
+  // promise.all best practice, if wanted to set state with error bc as is they both update one after the other
   // fetch req for all users saved locations
   componentDidMount() {
     let URL = `${config.API_ENDPOINT}/userloc/user`;
@@ -98,28 +98,28 @@ handleClickDelete = (commentId) => {
 
               return (
                 <div className='saved-locations-box' key={key}>
-                  <div className='div-for-comments'>
-                  <p>{locByUser.title}</p>
+                  <div className='same'>
+                  <h3>{locByUser.title}</h3>
                   <p>{locByUser.content}</p>
-                  <img src={locByUser.image} alt='location' />
+                  <img src={locByUser.image} alt='location'/>
                   <p>{locByUser.keyword}</p>
                   <p>{locByUser.location}</p>
                   </div>
                   
-                  <div className='comments-box'>
+                  <div className='same'>
                     {Comments.map((comment, key) => {
                       return (
                         <div className='comments-inside' key={key}>
                           <h3>{comment.title}</h3>
                           <p>{comment.content}</p>
 
-                          {/* bc in the map can access comment.id so create a new function */}
+                          {/* bc in the map can access comment.id so create arrow func and pass in comment.id */}
                           <button onClick={() => this.handleClickDelete(comment.id)}>Delete</button>
                         </div>
                       );
                     })}
-                  </div>
-                  <NoteForm locId={locByUser.id}/>
+                  <NoteForm locId={locByUser.id}/>                  </div>
+
                 </div>
               );
             })}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import config from '../config';
 import TokenService from '../services/token-service';
+import './NoteForm.css'
+
 
 class NoteForm extends Component {
   constructor(props) {
