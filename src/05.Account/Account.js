@@ -101,7 +101,7 @@ handleClickDelete = (commentId) => {
                   <div className='same'>
                   <h3>{locByUser.title}</h3>
                   <p>{locByUser.content}</p>
-                  <img src={locByUser.image} alt='location'/>
+                  <img src={locByUser.image} alt='location'className='acct-img'/>
                   <p>{locByUser.keyword}</p>
                   <p>{locByUser.location}</p>
                   </div>
@@ -109,7 +109,7 @@ handleClickDelete = (commentId) => {
                   <div className='same'>
                     {Comments.map((comment, key) => {
                       return (
-                        <div className='comments-inside' key={key}>
+                        <div className='notes-inside' key={key}>
                           <h3>{comment.title}</h3>
                           <p>{comment.content}</p>
 
@@ -118,7 +118,8 @@ handleClickDelete = (commentId) => {
                         </div>
                       );
                     })}
-                  <NoteForm locId={locByUser.id}/>                  </div>
+                    <NoteForm locId={locByUser.id} />
+                  </div>
 
                 </div>
               );

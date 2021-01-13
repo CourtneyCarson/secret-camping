@@ -1,7 +1,7 @@
 import React from 'react';
 import config from '../config';
 import TokenService from '../services/token-service';
-// import './FormWizard.css'
+import './FormWizard.css';
 
 class FormWizard extends React.Component {
   constructor(props) {
@@ -62,7 +62,7 @@ class FormWizard extends React.Component {
           this.setState({
             currentStep: 3
           });
-          window.location = '/list'
+          window.location = '/list';
         });
     } else {
 
@@ -99,7 +99,7 @@ class FormWizard extends React.Component {
     if (currentStep !== 1) {
       return (
         <button
-          className='btn btn-secondary'
+          className='previous-btn'
           type='button' onClick={this._prev}>
           Previous
         </button>
@@ -113,7 +113,7 @@ class FormWizard extends React.Component {
     if (currentStep < 2) {
       return (
         <button
-          className='btn btn-primary float-right'
+          className='next-btn'
           type='button' onClick={this._next}>
           Next
         </button>
@@ -151,7 +151,7 @@ class FormWizard extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Add A New Site 🧙‍♂️</h1>
+        <h4 className='add-new-site-header'>Add A New Site 🧙‍♂️</h4>
         <p>Step {this.state.currentStep} </p>
 
         <form onSubmit={this.handleSubmit}>
@@ -198,7 +198,7 @@ function Step1(props) {
   return (
     <section className='step1'>
       <section className='left-side'>
-        <button type='button' className='btn widget-btn' onClick={props.openWidget}>Upload Via Widget</button>
+        <button type='button' className='widget-btn' onClick={props.openWidget}>Upload Image</button>
       </section>
 
       <section className='right-side'>
@@ -220,6 +220,7 @@ function Step2(props) {
   return (
     <React.Fragment>
       <div className='form-group'>
+
         <label htmlFor='title'>Title</label>
         <input
           className='form-control'
@@ -230,26 +231,30 @@ function Step2(props) {
           value={props.title}
           onChange={props.handleChange}
         />
+
+        <label htmlFor='title'>Content</label>
         <input
           className='form-control'
           id='content'
           name='content'
-          type='content'
-          placeholder='Enter content'
+          type='text'
+          placeholder='Enter content + special directions'
           value={props.content}
           onChange={props.handleChange}
         />
+
+        <label htmlFor='title'>Location</label>
         <input
           className='form-control'
           id='keyword'
           name='keyword'
-          type='keyword'
+          type='text'
           placeholder='Enter location keyword'
           value={props.keyword}
           onChange={props.handleChange}
         />
       </div>
-      <button className='btn btn-success btn-block'>Add Site</button>
+      <button className='add-btn'>Add Site</button>
     </React.Fragment>
   );
 }
@@ -263,7 +268,7 @@ function Step3(props) {
       <div className='form-group'>
         <h4> Success! </h4>
       </div>
-      <button className='btn btn-success btn-block'>Submit Another</button>
+      <button className='sub-another-btn'>Submit Another</button>
     </React.Fragment>
   );
 }

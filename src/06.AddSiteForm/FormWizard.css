@@ -1,68 +1,35 @@
-.left-side {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-right: .5px solid grey;
-}
-
-.right-side {
-  border-left: .5px solid grey;
-}
-
-.left-side,
- .right-side {
-  height: 300px;
-  width: 100%;
-}
-
- .left-side form {
-  height: fit-content;
+.form-wizard-div {
+  /* display: flex; */
   background: white;
-  border: 1px solid grey;
-  border-radius: 4px;
-  width: 300px;
-  padding: 40px 10px;
+  padding: .5em 0em 2em 0em;
+  margin: 3em;
+  border-radius: 1em;
 }
 
- .left-side form input {
-  margin: 0 0 30px;
-  width: 200px;
-}
 
- .left-side form .btn {
-  height: 40px;
-  width: 200px;
-  background: white;
-  border: 1px solid grey;
-  cursor: pointer;
-  border-radius: 4px;
-}
 
- .left-side form .btn:hover {
+.widget-btn, .next-btn, .previous-btn, .add-btn, .sub-another-btn{
+  padding: .3em .6em;
+  background: #307E7C;
   color: white;
-  background: grey;
+  border: none;
+  border-radius: .3em;
+  font-size: 1em;
+  font-family: sans-serif;
+  margin: .3em;
 }
 
- .left-side form .btn:focus {
-  box-shadow: none;
-  outline: none;
-}
-
- .left-side form .btn.widget-btn {
-  margin-top: 15px;
-  background: #800080;
-  border: 1px solid #800080;
-  color: #FFFFFF;
-}
-
- .left-side form .btn.widget-btn:hover {
-  margin-top: 15px;
-  background: #4B0082;
-  border: 1px solid #4B0082;
-  color: #FFFFFF;
-}
-
- .right-side .displayed-image {
-  height: 300px;
-  width: 300px;
+.form-control {
+  /* display: flex; */
+  /* flex: 2; */
+  /* flex-direction: row; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  border: none;
+  border-radius: .3em;
+  font-size: .9em;
+  font-family: sans-serif;
+  padding: .3em;
+  margin: .3em;
+  background:pink;
 }

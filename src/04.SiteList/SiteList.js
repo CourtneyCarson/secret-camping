@@ -10,9 +10,10 @@ export default class SiteList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null,
+      // error: null,
       locationId: "",
       location: [],
+      errorMsg: '',
     };
   }
 
@@ -20,13 +21,8 @@ export default class SiteList extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { locationId } = event.target;
-    // console.log('locationID', locationId);
-    this.setState({ error: null });
-    // let currentUserId = TokenService.getUserId();
-    // console.log('currentUserId', currentUserId);
+    this.setState({ errorMsg: null });
     this.postLocation(locationId.value);
-    // console.log('locationId.value', locationId.value)
-    this.props.history.push('/account');
   };
 
 
@@ -51,7 +47,6 @@ export default class SiteList extends Component {
 
 
 
-  // potentially add the star rating to the cards also 
 
   //  POST - SAVE LOCATION TO USER ACCOUNT 
   postLocation(location_id) {
@@ -67,16 +62,19 @@ export default class SiteList extends Component {
         location_id,
       }),
     })
-      // .then((res) => res.json());
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => this.setState({ error: e })
-          )
-          : res.json()
-      )
+      // .then((res) => res.json());res.statusText
+      .then(res => {
+        if (!res.ok) {
+          console.log(res);
+          this.setState({ errorMsg: `Location already saved to account` });
+        } else {
+          res.json();
+          window.location = '/account';
+        }
+      })
       .catch(err => {
         console.log(err);
-        this.setState({ error: err });
+        this.setState({ errorMsg: err });
       });
   }
 
@@ -84,16 +82,25 @@ export default class SiteList extends Component {
   render() {
     console.log(this.state.location);
 
-    return (
+    // error message output 
+    let showErrorOutput = '';
+    console.log(this.state.errorMsg);
+    if (this.state.errorMsg) {
+      showErrorOutput = <div className='alert alert-info'>
+        {this.state.errorMsg}
+      </div>;
+    }
 
+
+
+    return (
 
       <main>
         <div className="list-page">
-
           <h1 className='list-h1'>List</h1>
 
           {/* upload image & add details: */}
-          <div><FormWizard /> </div>
+          <div className='form-wizard-div'><FormWizard /> </div>
           {/* Filter the locations: */}
           <div><Search /></div>
 
@@ -105,7 +112,7 @@ export default class SiteList extends Component {
             return (
               <section className='site-list-component'>
                 <div className='site-list' key={key}>
-
+                {/* save multiple error */}{showErrorOutput}
                   <form className='locations-div' onSubmit={this.handleSubmit}>
                     <div className='title-image-content'>
                       <p className='title'>{item.title}</p>
@@ -118,7 +125,7 @@ export default class SiteList extends Component {
                       <input type='hidden' name='locationId' value={item.id}></input>
                       <button className='save-button' type='submit'> Save </button>
                     </div>
-
+                    
                     <div className='google-map'>
                       <p>{item.keyword}</p>
                       {/* google map */}
@@ -137,7 +144,8 @@ export default class SiteList extends Component {
 
                   </form>
                   {/* ratings render + rate location */}
-                  <StarRating id={item.id} />
+                  <StarRating id={item.id} showError={this.state.errorMsg} />
+
 
                 </div>
               </section>

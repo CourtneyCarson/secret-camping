@@ -13,7 +13,7 @@ class StarRating extends Component {
     super(props);
     this.state = {
       rating: {},
-      error: null,
+      errorMsg: null,
     };
   }
 
@@ -43,7 +43,7 @@ class StarRating extends Component {
 
 
 
-  // post rating to db
+  // post dropdown rating to db
   postForm = (event) => {
     event.preventDefault();
     let URL = `${config.API_ENDPOINT}/ratings/${this.props.id}`;
@@ -61,16 +61,18 @@ class StarRating extends Component {
         stars: rating
       }),
     })
-      .then(res =>
-        (!res.ok) ?
+      .then(res => {
+        if (!res.ok) {
+          this.setState({ errorMsg: res.statusText });
+        } else {
           res.json()
-            .then(event => Promise.reject(event)) :
-          res.json()
-      )
+          window.location = '/list'
+        }
+      })
       .then(this.fetchRating)
       .catch(err => {
         console.log(err);
-        this.setState({ error: err });
+        this.setState({ errorMsg: err });
       });
   };
 
@@ -80,11 +82,24 @@ class StarRating extends Component {
 
   render() {
     // STILL NEED TO HANDLE ERROR: let error = this.state.error
+
+
+    // error message output 
+    let showErrorOutput = '';
+    console.log(this.props.showError);
+    if (this.props.showError) {
+      showErrorOutput = <div className='alert alert-info'>
+        {this.props.showError}
+      </div>;
+    }
+
+
     let rating = Math.round(parseInt(parseFloat(this.state.rating.average_rating))) || 1;
 
     return (
       <>
         <p>Average Rating:</p>
+
         <form onSubmit={this.postForm}>
           {[1, 2, 3, 4, 5].map(num => {
             let star = rating >= num ? 'full-star' : 'empty-star';
@@ -93,7 +108,6 @@ class StarRating extends Component {
 
               {/* <FontAwesomeIcon icon={faTree} /> */}
               <FontAwesomeIcon icon={faCampground} />
-
             </div>;
           })}
 
@@ -110,12 +124,13 @@ class StarRating extends Component {
           </select>
 
           <button>Submit</button>
+          {/* {showErrorOutput} */}
 
         </form>
       </>
     );
 
   }
-}
+};
 
 export default StarRating;
