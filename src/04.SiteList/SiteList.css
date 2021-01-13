@@ -1,31 +1,20 @@
 .list-page {
   /* background-image: url('/src/images/MtStHelensFlowers_1024x1024@2x.jpg'); */
 background:lightgray;
-  /* background-size: cover; */
-  /* background-repeat:   no-repeat; */
-  /* background-position: center center; */
-  /* min-width: 100vh; */
-  /* min-height: 100vh; */
 }
 
-/* both form wizard and search box */
-/* .form-search-section {
-  display: flex;
-  justify-content: space-around;
-} */
-
 .site-list {
-  /* background-image: url('/src/images/transparent\ \(1\).jpg'); */
-  /* background:rgba(255,255,255, 0.5); */
   background:white;
-  /* display:flex;  */
-  /* flex-direction: column;  */
-  /* justify-content: center; */
-  /* align-items: center;  */
-  /* border: none; */
   /* max-width: 80em; */
   margin: 6em 5em 0 5em;
   border-radius:2em;
-  /* padding:2em; */
+  padding-bottom:2em;
 }
 
+.item-image {
+  border-radius: .5em;
+}
+
+.google-map {
+  border: red; 
+}

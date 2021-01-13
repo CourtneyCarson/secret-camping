@@ -102,17 +102,16 @@ class StarRating extends Component {
         <form onSubmit={this.postForm} className='rating-form'>
 
           <div className='stars-container'>
-            <p className='average-ratings'>Average Rating:</p>
+            <p>Average Rating:</p>
             {[1, 2, 3, 4, 5].map(num => {
-          
-            let star = rating >= num ? 'full-star' : 'empty-star';
+              let star = rating >= num ? 'full-star' : 'empty-star';
 
-            return (
-              <div className={star} key={num}>
-                <FontAwesomeIcon icon={faCampground} className='font-awesome' />
-              </div>
-            );
-          })}
+              return (
+                <div className={star} key={num}>
+                  <FontAwesomeIcon icon={faCampground} className='font-awesome' />
+                </div>
+              );
+            })}
           </div>
 
           {/* leave a rating dropdown */}
