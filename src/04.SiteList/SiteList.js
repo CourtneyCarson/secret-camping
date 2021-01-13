@@ -99,20 +99,30 @@ export default class SiteList extends Component {
         <div className="list-page">
           <h1 className='list-h1'>List</h1>
 
-          {/* upload image & add details: */}
-          <div className='form-wizard-div'><FormWizard /> </div>
-          {/* Filter the locations: */}
-          <div><Search /></div>
+          <section className='form-search-section'>
 
+            {/* upload image & add details: */}
+            <div className='form-wizard-div'>
+              <FormWizard />
+            </div>
+
+            {/* Filter the locations: */}
+            <div className='search-box-div'>
+              <Search />
+            </div>
+
+          </section>
 
           <h4>{this.state.location.map((item, key) => {
             // google map rendered based on keyword:
             let iFrameUrl = `https://maps.google.com/maps?q=${item.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
 
             return (
-              <section className='site-list-component'>
+              <section className='site-list-component' key={key}>
                 <div className='site-list' key={key}>
-                {/* save multiple error */}{showErrorOutput}
+                  {/* save multiple error */}{showErrorOutput}
+                  <StarRating id={item.id} showError={this.state.errorMsg} />
+
                   <form className='locations-div' onSubmit={this.handleSubmit}>
                     <div className='title-image-content'>
                       <p className='title'>{item.title}</p>
@@ -125,7 +135,7 @@ export default class SiteList extends Component {
                       <input type='hidden' name='locationId' value={item.id}></input>
                       <button className='save-button' type='submit'> Save </button>
                     </div>
-                    
+
                     <div className='google-map'>
                       <p>{item.keyword}</p>
                       {/* google map */}
@@ -144,7 +154,6 @@ export default class SiteList extends Component {
 
                   </form>
                   {/* ratings render + rate location */}
-                  <StarRating id={item.id} showError={this.state.errorMsg} />
 
 
                 </div>

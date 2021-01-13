@@ -65,8 +65,8 @@ class StarRating extends Component {
         if (!res.ok) {
           this.setState({ errorMsg: res.statusText });
         } else {
-          res.json()
-          window.location = '/list'
+          res.json();
+          window.location = '/list';
         }
       })
       .then(this.fetchRating)
@@ -97,37 +97,45 @@ class StarRating extends Component {
     let rating = Math.round(parseInt(parseFloat(this.state.rating.average_rating))) || 1;
 
     return (
-      <>
-        <p>Average Rating:</p>
+      <section className='ratings'>
 
-        <form onSubmit={this.postForm}>
-          {[1, 2, 3, 4, 5].map(num => {
+        <form onSubmit={this.postForm} className='rating-form'>
+
+          <div className='stars-container'>
+            <p className='average-ratings'>Average Rating:</p>
+            {[1, 2, 3, 4, 5].map(num => {
+          
             let star = rating >= num ? 'full-star' : 'empty-star';
 
-            return <div className={star} key={num}>
-
-              {/* <FontAwesomeIcon icon={faTree} /> */}
-              <FontAwesomeIcon icon={faCampground} />
-            </div>;
+            return (
+              <div className={star} key={num}>
+                <FontAwesomeIcon icon={faCampground} className='font-awesome' />
+              </div>
+            );
           })}
+          </div>
 
-          <select name='ratings_select'>
-            {[1, 2, 3, 4, 5].map(num => {
-              return (
-                <option
-                  key={num}
-                  value={num}
-                >{num}
-                </option>
-              );
-            })}
-          </select>
+          {/* leave a rating dropdown */}
+          <div className='rating-select-div'>
+            <p>leave a rating</p>
 
-          <button>Submit</button>
+            <select name='ratings_select' className='rating-select'>
+              {[1, 2, 3, 4, 5].map(num => {
+                return (
+                  <option
+                    key={num}
+                    value={num}
+                  >{num}
+                  </option>
+                );
+              })}
+            </select>
+            <button className='rating-btn'>Submit</button>
+          </div>
           {/* {showErrorOutput} */}
 
         </form>
-      </>
+      </section>
     );
 
   }

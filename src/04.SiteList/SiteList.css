@@ -8,47 +8,24 @@ background:lightgray;
   /* min-height: 100vh; */
 }
 
+/* both form wizard and search box */
+/* .form-search-section {
+  display: flex;
+  justify-content: space-around;
+} */
+
 .site-list {
   /* background-image: url('/src/images/transparent\ \(1\).jpg'); */
-  background:rgba(255,255,255, 0.5);
-  display:flex; 
-  flex-direction: column; 
-  justify-content: center;
-  align-items: center; 
-  border: none;
-  max-width: 80em;
+  /* background:rgba(255,255,255, 0.5); */
+  background:white;
+  /* display:flex;  */
+  /* flex-direction: column;  */
+  /* justify-content: center; */
+  /* align-items: center;  */
+  /* border: none; */
+  /* max-width: 80em; */
   margin: 6em 5em 0 5em;
+  border-radius:2em;
   /* padding:2em; */
 }
 
-/* .locations-div {
-  display: flex;
-  flex-direction: column;
-} */
-
-/* .locations-div p {
-  display: flex;
-  flex-direction: column;
-} */
-
-/* .content-div {
-  display: flex;
-  flex: 1;
-} */
-
-/* .google-map {
-  display: flex;
-  flex: 1;
-  align-items: flex-end;
-  flex-direction: row;
-} */
-
-/* .title {
-  flex-direction: row;
-  align-content: center;
-}
-
-.title-image-content {
-  display: flex;
-  flex-direction: column;
-} */
