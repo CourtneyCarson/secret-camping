@@ -103,10 +103,13 @@ class Search extends Component {
     return (
       <div className='location-search'>
         <section>
-          <form onSubmit={this.searchForm}>
+
+          <form onSubmit={this.searchForm} className='search-form'>
             <div className='error-message'>{msg}</div>
-            <label htmlFor='searchTerm'>SearchTerm</label>
+
+            <label htmlFor='search-label' className='search-label'>Search Locations</label>
             <input
+              className='search-input'
               type='text'
               id='searchTerm'
               name='searchTerm'
@@ -115,9 +118,11 @@ class Search extends Component {
                 this.changeSearchTerm(event.target.value)}
               required
             />
+
             <button className='search-button'
               type='submit'> Search
             </button>
+          
           </form>
           <div>{showLocationsPage}</div>
 

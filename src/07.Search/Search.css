@@ -1,3 +1,4 @@
+/* list of returned results */
 .search-results-list {
   background:rgba(255,255,255, 0.8);
   display:flex; 
@@ -8,4 +9,37 @@
   max-width: 80em;
   margin: 6em 5em 0 5em;
   padding:2em;
+}
+
+/* input box & button */
+.search-input {
+  border: none;
+  border-radius: .3em;
+  font-size: .9em;
+  font-family: sans-serif;
+  padding: .3em;
+  margin: .3em;
+  background:pink;
+}
+
+.search-button {
+  padding: .3em .6em;
+  background: #307E7C;
+  color: white;
+  border: none;
+  border-radius: .3em;
+  font-size: 1em;
+  font-family: sans-serif;
+  margin: .3em;
+}
+
+.search-form {
+  background: white;
+  padding: 2.5em;
+  margin: 3em;
+  border-radius: 1em;
+}
+
+.search-label {
+  font-weight: bold;
 }
