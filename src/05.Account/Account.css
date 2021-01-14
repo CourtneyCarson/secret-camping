@@ -33,7 +33,7 @@ padding: 2em;
  .same {
    flex:1;
 } 
-    
+
 
 
 }
@@ -54,11 +54,21 @@ border-radius: 1em;
   background:white;
   margin: 1em 1em 0 1em;
   /* padding:2em; */
-  border-radius: 2em;
+  border-radius: 1em;
+
 }
 
 .acct-img {
   max-width: 90%;
   height: auto;
   border-radius: .5em;
+}
+
+.saved-locations {
+  padding: 1em;
+}
+
+.acct-content {
+  padding-left: 1em;
+  padding-right: 1em;
 }

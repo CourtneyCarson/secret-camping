@@ -101,7 +101,7 @@ handleClickDelete = (commentId) => {
                 <div className='saved-locations-box' key={key}>
                   <div className='same'>
                   <h3>{locByUser.title}</h3>
-                  <p>{locByUser.content}</p>
+                  <p className='acct-content'>{locByUser.content}</p>
                   <img src={locByUser.image} alt='location'className='acct-img'/>
                   <p>{locByUser.keyword}</p>
                   <p>{locByUser.location}</p>
