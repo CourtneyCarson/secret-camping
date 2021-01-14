@@ -5,12 +5,23 @@
   margin: 3em;
   border-radius: 1em;
 }
+.widget-btn {
+  /* background: #307E7C; */
+  background: darkolivegreen;
+  padding: .3em .6em;
+  color: white;
+  border: none;
+  border-radius: .3em;
+  font-size: 1em;
+  font-family: sans-serif;
+  margin: .3em;
+}
 
-
-
-.widget-btn, .next-btn, .previous-btn, .add-btn, .sub-another-btn{
+ .next-btn, .previous-btn, .add-btn, .sub-another-btn{
   padding: .3em .6em;
   background: #307E7C;
+
+  /* background: orangered; */
   color: white;
   border: none;
   border-radius: .3em;

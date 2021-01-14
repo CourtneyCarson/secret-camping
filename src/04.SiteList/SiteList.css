@@ -6,15 +6,58 @@ background:lightgray;
 .site-list {
   background:white;
   /* max-width: 80em; */
-  margin: 6em 5em 0 5em;
+  margin: 0em 5em 2em 5em;
   border-radius:2em;
   padding-bottom:2em;
 }
 
-.item-image {
+.map-image {
   border-radius: .5em;
 }
 
+.save-button {
+  padding: .3em 1em;
+  background: orangered;
+  color: white;
+  border: none;
+  border-radius: .3em;
+  font-size: 1em;
+  font-family: sans-serif;
+  margin: .5em;
+  display: flex;
+}
+
+.site-list-img {
+border-radius: .5em;;
+}
+
+.content-div {
+  display: flex;
+justify-content: space-evenly;
+}
+
 .google-map {
-  border: red; 
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.title-image-content {
+  flex: 1;
+}
+.title {
+  margin-bottom: 1em;
+}
+
+.keyword-p {
+text-align: left;
+margin-left: .5em;
+}
+
+.content-p {
+   /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center;  */
+  text-align:right;
+  margin-left: 1em;
+  max-width: 92%;
 }

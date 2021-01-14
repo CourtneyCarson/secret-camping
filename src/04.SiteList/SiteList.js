@@ -115,42 +115,53 @@ export default class SiteList extends Component {
 
           <h4>{this.state.location.map((item, key) => {
             // google map rendered based on keyword:
-            let iFrameUrl = `https://maps.google.com/maps?q=${item.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+            let iFrameUrl = `https://maps.google.com/maps?q=${item.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed&maptype=satellite`;
 
             return (
               <section className='site-list-component' key={key}>
                 <div className='site-list' key={key}>
                   {/* save multiple error */}{showErrorOutput}
+
                   <StarRating id={item.id} showError={this.state.errorMsg} />
+                  <h2 className='title'>{item.title}</h2>
 
                   <form className='locations-div' onSubmit={this.handleSubmit}>
-                    <div className='title-image-content'>
-                      <p className='title'>{item.title}</p>
-                      <img src={item.image} alt='location' />
-                      <p>{item.content}</p>
-                      {/* <p>{item.location}</p> */}
-                    </div>
-
                     <div className='content-div'>
-                      <input type='hidden' name='locationId' value={item.id}></input>
-                      <button className='save-button' type='submit'> Save </button>
-                    </div>
+                      <div className='title-image-content'>
+                        {/* <p className='title'>{item.title}</p> */}
+                        <img src={item.image} alt='location' className='site-list-img' />
+                        <p className='content-p'>{item.content}</p>
+                        {/* <p>{item.location}</p> */}
+                      </div>
 
-                    <div className='google-map'>
-                      <p>{item.keyword}</p>
-                      {/* google map */}
-                      <iframe
-                        className="item-image"
-                        width="50%"
-                        height="250"
-                        id="google_map"
-                        src={iFrameUrl}
-                        frameBorder="0"
-                        scrolling="no"
-                        alt={item.keyword}
-                        title='title'
-                      ></iframe>
+                      {/* <div className='content-div'> */}
+                      {/* <input type='hidden' name='locationId' value={item.id}></input>
+                      <button className='save-button' type='submit'> Save </button> */}
+                      {/* </div> */}
+
+                      <div className='google-map'>
+                        {/* google map */}
+
+                        <iframe
+                          className="map-image"
+                          width="350"
+                          height="350"
+                          id="google_map"
+                          src={iFrameUrl}
+                          frameBorder="0"
+                          scrolling="no"
+                          alt={item.keyword}
+                          title='title'
+                          // maptype='satellite'
+                        ></iframe>
+                        <p className='keyword-p'>{item.keyword}</p>
+                        <input type='hidden' name='locationId' value={item.id}></input>
+                    <button className='save-button' type='submit'> Save </button>
+
+                      </div>
                     </div>
+                    {/* <input type='hidden' name='locationId' value={item.id}></input>
+                    <button className='save-button' type='submit'> Save </button> */}
 
                   </form>
                   {/* ratings render + rate location */}
