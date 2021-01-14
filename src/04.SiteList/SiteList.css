@@ -1,6 +1,6 @@
  /*////////////////////////////////// MOBILE STYLING /////////////////*/
  .list-page {
-  background-image: url('/src/images/MtStHelensFlowers_1024x1024@2x.jpg');
+  background-image: url('/src/images/sky&lake.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 1em;
@@ -49,6 +49,15 @@
     margin: 1em;
     padding: 2em;
   }
+
+  /* .site-list-component {
+    padding: 2em;
+    display:flex; 
+    justify-content: center;
+    align-items: center; 
+    margin: 6em 5em 0 5em;
+    border-radius: 3em;
+  } */
   
   .save-button {
     display: flex;
