@@ -1,24 +1,19 @@
 @media screen and (min-width:600px){
+  /* background image */
+  .login-overlay {
+    background-size:cover;
+    padding:15em;
+  }
 
-/* background image */
-.login-overlay {
-  background-size:cover;
-  padding:15em;
-}
-
-/* header text */
-.log-in-page {
-  margin: 1em;
-  padding: 2em;
-} 
-
-/* .link-register-div {
-  color: white;
-  font-weight: bolder;
-} */
+  /* header text */
+  .log-in-page {
+    margin: 1em;
+    padding: 2em;
+  } 
 }
 
 /* MOBILE STYLE */
+/* background image */
 .login-overlay {
   background-image: url('/src/images/ItalyBackground.jpeg');
   background-size:cover;
