@@ -1,4 +1,6 @@
+/* MOBILE STYLING */
 
+/* background image */
 .landing-overlay {
   background-image: url('/src/images/secretcampingbackground.jpg');
   background-size: cover;
@@ -8,19 +10,23 @@
   justify-content: center;
   align-items: center;
   margin: 1em;
-  padding:15em;
+  padding:8em;
 }
 
 .landing-page-header {
-  margin: 1em;
-  padding: 2em;
   color:white;
+  font-size: 1.5em;
+}
+
+.content-div {
+  display: flex; 
+  flex-direction: column;
+  width: 15em;
 }
 
 .landing-page-content {
-  margin: 1em;
-  padding: 2em;
   color:white;
+  font-weight: bold;
 }
 
 .landing-btn {
@@ -34,6 +40,36 @@
   margin: .3em;
 }
 
-a:link {
-  text-decoration:none;
-}
+
+
+
+/* FULL SCREEN */
+@media screen and (min-width:600px){
+  /* background image */
+  .landing-overlay {
+    background-size: cover;
+    padding:15em;
+  }
+  
+  .landing-page-header {
+    /* margin: 1em; */
+    /* padding: 2em; */
+    font-size: 2em;
+
+  }
+  
+  .landing-page-content {
+    margin: 1em;
+    padding: 2em;
+    width: 100%;
+  }
+    
+  a:link {
+    text-decoration:none;
+  }
+  
+  .content-div {
+     width: 100%;
+  }
+  
+  }

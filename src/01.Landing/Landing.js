@@ -10,19 +10,24 @@ export default class Landing extends Component {
 
       <main>
         {/* <div className='landing-page'> */}
-          
-          <section className='landing-overlay'>
+
+        <section className='landing-overlay'>
+
           <div className='landing-page-header'>
-            <h1 className='landing-h1'> Secret Camping Spots </h1>
+            <h1 className='landing-h1'> Secret Camping</h1>
           </div>
+
 
           <div className='landing-page-content'>
-            <p> A members only site to share the best secret camping spots. No campsites. No other people. Just you and nature.</p>
+            <div className='content-div'>
+            <p> A members only site to share the best secluded camping spots.</p>
+            <p>No campsites. <br></br> No other people. <br></br> Just you and nature.</p>
+            </div>
               <Link to='/login'><button className='landing-btn'>Log In</button> </Link>
-              <Link to='/signup'><button className='landing-btn'>Register</button> </Link>
-
+            <Link to='/signup'><button className='landing-btn'>Register</button> </Link>
           </div>
-          </section>
+
+        </section>
         {/* </div> */}
       </main>
     );
