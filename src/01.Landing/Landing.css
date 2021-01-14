@@ -1,18 +1,39 @@
-.landing-page {
-  background-image: url('/src/images/secretcampingbackground.jpg');
-  background-size: cover;
-  /* min-width: 100vh; */
-  min-height: 100vh;
-}
 
 .landing-overlay {
-  background:rgba(255,255,255, 0.5);
+  background-image: url('/src/images/secretcampingbackground.jpg');
+  background-size: cover;
+  border-radius: 1em;
   display:flex; 
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 1em;
+  padding:15em;
+}
+
+.landing-page-header {
+  margin: 1em;
+  padding: 2em;
+  color:white;
+}
+
+.landing-page-content {
+  margin: 1em;
+  padding: 2em;
+  color:white;
+}
+
+.landing-btn {
+  background:orangered;
+  padding: .3em .6em;
+  color: white;
   border: none;
-  max-width: 80em;
-  margin: 6em 5em 0 5em;
-  padding:2em;
+  border-radius: .3em;
+  font-size: 1em;
+  font-family: sans-serif;
+  margin: .3em;
+}
+
+a:link {
+  text-decoration:none;
 }
