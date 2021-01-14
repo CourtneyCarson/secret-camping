@@ -1,16 +1,3 @@
-@media screen and (min-width:600px){
-
-  .sign-up-overlay {
-    background-size: cover;
-    padding:15em;
-  }
-
-  /* header text */
-  .sign-up-page {
-    margin: 1em;
-    padding: 2em;
-  }
-}
 
 /*  MOBILE STYLING */
 .sign-up-overlay {
@@ -70,3 +57,19 @@
   .login-link {
     color:yellow;
   }
+
+
+  @media screen and (min-width:600px){
+
+    .sign-up-overlay {
+      background-size: cover;
+      padding:15em;
+    }
+  
+    /* header text */
+    .sign-up-page {
+      margin: 1em;
+      padding: 2em;
+    }
+  }
+  

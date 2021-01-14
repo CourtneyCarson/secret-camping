@@ -1,16 +1,4 @@
-@media screen and (min-width:600px){
-  /* background image */
-  .login-overlay {
-    background-size:cover;
-    padding:15em;
-  }
 
-  /* header text */
-  .log-in-page {
-    margin: 1em;
-    padding: 2em;
-  } 
-}
 
 /* MOBILE STYLE */
 /* background image */
@@ -58,4 +46,19 @@
   margin: .3em;
   display: flex;
   justify-content: center;
+  }
+
+
+  @media screen and (min-width:600px){
+    /* background image */
+    .login-overlay {
+      background-size:cover;
+      padding:15em;
+    }
+  
+    /* header text */
+    .log-in-page {
+      margin: 1em;
+      padding: 2em;
+    } 
   }

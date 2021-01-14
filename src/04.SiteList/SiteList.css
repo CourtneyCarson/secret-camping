@@ -1,101 +1,15 @@
-
-/* FULL SCREEN */
-@media screen and (min-width:600px){
-.list-page {
-  /* background-image: url('/src/images/MtStHelensFlowers_1024x1024@2x.jpg');
-
-background-size: cover;
-background-repeat: no-repeat;
-border-radius: 1em; */
-display:flex; 
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin: 1em;
-padding: 2em;
-}
-
-.site-list {
-  /* background:white; */
-  /* max-width: 80em; */
-  /* margin: 0em 5em 2em 5em; */
-  /* border-radius:2em; */
-  /* padding-bottom:2em; */
-}
-
-.map-image {
-  /* border-radius: .5em; */
-  /* height: 350;
-  width: 350;  */
-}
-
-.save-button {
-  /* padding: .3em 1em;
-  background: orangered;
-  color: white;
-  border: none;
-  border-radius: .3em;
-  font-size: 1em;
-  font-family: sans-serif;
-  margin: .5em; */
-  display: flex;
-}
-
-/* .site-list-img {
-border-radius: .5em;
-} */
-
-.content-div {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-/* right section of card */
-.right-side-map-keyword {
-  flex: 1;
-  justify-content: flex-end;
-}
-/* left section of card */
-.left-side-image-content {
-  flex: 1;
-}
-.title {
-  margin-bottom: 1em;
-}
-
-.keyword-p {
-text-align: left;
-margin-left: .5em;
-}
-
-.content-p {
-   /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center;  */
-  text-align:right;
-  margin-left: 1em;
-  max-width: 92%;
-}
-
-.form-search-section {
-  padding:0em;
-  margin: 0em;
-}
-}
-
-/*////////////////////////////////// MOBILE STYLING /////////////////*/
-.list-page {
+ /*////////////////////////////////// MOBILE STYLING /////////////////*/
+ .list-page {
   background-image: url('/src/images/MtStHelensFlowers_1024x1024@2x.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 1em;
   padding: 1em;
-
 }
 
 .site-list {
    background:white;
-  margin: 1em 1em 0 1em;
+   margin: 1em 1em 0 1em;
   /* padding:2em; */
   border-radius: 1em;
 }
@@ -122,3 +36,60 @@ margin-left: .5em;
   border-radius: .5em;
 }
 
+
+
+
+/* FULL SCREEN */
+@media screen and (min-width:600px) {
+  .list-page {
+    display:flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+    padding: 2em;
+  }
+  
+  .save-button {
+    display: flex;
+  }
+  
+  .content-div {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-evenly; */
+  }
+  
+  /* right section of card */
+  .right-side-map-keyword {
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  /* left section of card */
+  .left-side-image-content {
+    flex: 1;
+  }
+
+  .title {
+    margin-bottom: 1em;
+  }
+  
+  .keyword-p {
+    text-align: left;
+    margin-left: .5em;
+  }
+
+  .content-p {
+    text-align:right;
+    margin-left: 1em;
+    max-width: 92%;
+  }
+  
+  .form-search-section {
+    padding:0em;
+    margin: 0em;
+  }
+}
+  
+ 
