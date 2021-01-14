@@ -72,30 +72,48 @@ class Search extends Component {
     // }
     //if there are items - display details for each: 
     // else {
-      showLocationsPage = this.state.locations.map((location, key) => {
-        let iFrameUrl = `https://maps.google.com/maps?q=${location.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+    showLocationsPage = this.state.locations.map((location, key) => {
+      let iFrameUrl = `https://maps.google.com/maps?q=${location.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
 
-        return (
-          <div className='search-results-list' key={key}>
-            <p>{location.title}</p>
-            <p>{location.content}</p>
-            <p>{location.keyword}</p>
-            <img src={location.image} alt='location' />
-            <iframe
-              className="item-image"
-              width="50%"
-              height="250"
-              id="google_map"
-              src={iFrameUrl}
-              frameBorder="0"
-              scrolling="no"
-              alt={location.keyword}
-              title='title'
-            ></iframe>
-            <StarRating />
+      return (
+        <section className='search-results-list' key={key}>
+          <div className='search-list'>
+
+            <StarRating id={location.id} />
+            <h2 className='title'>{location.title}</h2>
+
+
+            <form className='search-list-div'>
+              <div className='content-div'>
+
+                <div className='left-side-image-content'>
+                  <img src={location.image} alt='location' className='search-list-img' />
+                  <p className='content-p'>{location.content}</p>
+                </div>
+
+
+                <div className='right-side-map-keyword'>
+                  <iframe
+                    className="map-image"
+                    width="350"
+                    height="350"
+                    id="google_map"
+                    src={iFrameUrl}
+                    frameBorder="0"
+                    scrolling="no"
+                    alt={location.keyword}
+                    title='title'
+                  ></iframe>
+                  <p className='keyword-p'>{location.keyword}</p>
+
+                </div>
+              </div>
+            </form>
+            {/* <StarRating /> */}
           </div>
-        );
-      });
+        </section>
+      );
+    });
     // }
 
 
@@ -122,7 +140,7 @@ class Search extends Component {
             <button className='search-button'
               type='submit'> Search
             </button>
-          
+
           </form>
           <div>{showLocationsPage}</div>
 

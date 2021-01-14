@@ -1,17 +1,29 @@
-/* list of returned results */
-.search-results-list {
-  background:rgba(255,255,255, 0.8);
-  display:flex; 
+/*//////////////////////// list of returned results //////////////////*/
+.search-list {
+  /* display:flex; 
   flex-direction: column; 
   justify-content: center;
   align-items: center; 
   border: none;
   max-width: 80em;
   margin: 6em 5em 0 5em;
-  padding:2em;
+  padding:2em; */
+  background:white;
+  /* max-width: 80em; */
+  margin: 0em 5em 2em 5em;
+  border-radius:2em;
+  padding-bottom:2em;
 }
 
-/* input box & button */
+.search-list-img {
+  border-radius: .5em;
+}
+
+.content-p, .keyword-p {
+  font-weight: bold;
+}
+
+/*///////////// input box & button ///////////////////////////////////*/
 .search-input {
   border: none;
   border-radius: .3em;

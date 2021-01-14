@@ -38,7 +38,7 @@ padding: 2em;
 }
 
 .site-list-img {
-border-radius: .5em;;
+border-radius: .5em;
 }
 
 .content-div {
@@ -46,12 +46,13 @@ border-radius: .5em;;
 justify-content: space-evenly;
 }
 
-.google-map {
+/* right section of card */
+.right-side-map-keyword {
   flex: 1;
   justify-content: flex-end;
 }
-
-.title-image-content {
+/* left section of card */
+.left-side-image-content {
   flex: 1;
 }
 .title {

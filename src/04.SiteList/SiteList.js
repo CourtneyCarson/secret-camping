@@ -97,9 +97,9 @@ export default class SiteList extends Component {
 
       <main>
         <div className="list-page">
+          <h1 className='list-h1'>List</h1>
 
           <section className='form-search-section'>
-          <h1 className='list-h1'>List</h1>
 
             {/* upload image & add details: */}
             <div className='form-wizard-div'>
@@ -127,7 +127,7 @@ export default class SiteList extends Component {
 
                   <form className='locations-div' onSubmit={this.handleSubmit}>
                     <div className='content-div'>
-                      <div className='title-image-content'>
+                      <div className='left-side-image-content'>
                         {/* <p className='title'>{item.title}</p> */}
                         <img src={item.image} alt='location' className='site-list-img' />
                         <p className='content-p'>{item.content}</p>
@@ -139,7 +139,7 @@ export default class SiteList extends Component {
                       <button className='save-button' type='submit'> Save </button> */}
                       {/* </div> */}
 
-                      <div className='google-map'>
+                      <div className='right-side-map-keyword'>
                         {/* google map */}
 
                         <iframe
