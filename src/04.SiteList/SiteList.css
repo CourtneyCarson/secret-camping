@@ -1,6 +1,16 @@
 .list-page {
-  /* background-image: url('/src/images/MtStHelensFlowers_1024x1024@2x.jpg'); */
-background:lightgray;
+  background-image: url('/src/images/MtStHelensFlowers_1024x1024@2x.jpg');
+
+/* background:lightgray; */
+background-size: cover;
+background-repeat: no-repeat;
+border-radius: 1em;
+display:flex; 
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 1em;
+padding: 2em;
 }
 
 .site-list {
@@ -60,4 +70,9 @@ margin-left: .5em;
   text-align:right;
   margin-left: 1em;
   max-width: 92%;
+}
+
+.form-search-section {
+  padding:0em;
+  margin: 0em;
 }

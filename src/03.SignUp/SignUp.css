@@ -61,10 +61,10 @@ justify-content: center;
   font-weight: bolder;
 }
 
-a:hover {
+.login-link:hover {
   color: orange;
 }
 
-a {
-  color:white;
+.login-link {
+  color:yellow;
 }

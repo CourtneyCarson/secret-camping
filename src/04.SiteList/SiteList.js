@@ -97,9 +97,9 @@ export default class SiteList extends Component {
 
       <main>
         <div className="list-page">
-          <h1 className='list-h1'>List</h1>
 
           <section className='form-search-section'>
+          <h1 className='list-h1'>List</h1>
 
             {/* upload image & add details: */}
             <div className='form-wizard-div'>

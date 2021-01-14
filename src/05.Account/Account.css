@@ -1,7 +1,14 @@
 .accounts-page {
-/* background-image: url('/src/images/7b5020dd70445976171bf410b149ef39.jpg'); */
- /* background-color: rgb(0,37,0); */
- background: lightgray;
+background-image: url('/src/images/29239.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+border-radius: 1em;
+display:flex; 
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 1em;
+padding: 2em;
 }
 
 .saved-locations {
