@@ -86,7 +86,8 @@ handleClickDelete = (commentId) => {
         <div className='accounts-page'>
 
           <header className='banner'>
-            <h1 className='account-header'>Saved Secret Camping Spots</h1>
+            <h1 className='account-header'>Your Bucket List</h1>
+            <p className='account-p'>Seclusion Awaits.</p>
           </header>
 
 

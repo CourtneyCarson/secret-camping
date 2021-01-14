@@ -1,0 +1,25 @@
+.nav-bar {
+  /* background: yellow; */
+  /* height: 5em; */
+  /* vertical-align:center; */
+  padding-top: 1em;
+}
+
+.nav-link {
+  display: flex;
+  justify-content: space-around;
+/* align-content: center; */
+vertical-align: bottom;
+font-weight: bolder;
+}
+
+.nav-links {
+  color:black;
+
+}
+
+.nav-links:hover {
+  color: orangered;
+}
+
+

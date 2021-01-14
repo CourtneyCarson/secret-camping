@@ -97,7 +97,7 @@ export default class SiteList extends Component {
 
       <main>
         <div className="list-page">
-          <h1 className='list-h1'>List</h1>
+          {/* <h1 className='list-h1'>List</h1> */}
 
           <section className='form-search-section'>
 

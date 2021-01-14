@@ -24,9 +24,9 @@ export default class NavBar extends React.Component {
           <Route exact path={['/list', '/log-out', '/account']} render={() => {
             return (
               <>
-                <Link to='/list'>Sites</Link>
-                <Link to='/account'>Account</Link>
-                <Link to="/" onClick={this.logOutClick}>Log Out</Link>
+                <Link to='/list' className='nav-links'>Sites</Link>
+                <Link to='/account' className='nav-links'>Account</Link>
+                <Link to="/" onClick={this.logOutClick} className='nav-links'>Log Out</Link>
               </>
             );
           }} />

@@ -11,6 +11,14 @@ margin: 1em;
 padding: 2em;
 }
 
+.account-header,.account-p {
+  color:white;
+}
+
+ 
+  
+
+
 .saved-locations {
   display:flex; 
   flex-wrap: wrap;
