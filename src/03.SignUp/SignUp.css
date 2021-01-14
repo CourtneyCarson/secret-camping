@@ -1,18 +1,70 @@
 .sign-up-component {
-  background-image: url('/src/images/sandiegocoast.jpeg');
-  background-size: cover;
+  /* background-image: url('/src/images/sandiegocoast.jpeg'); */
+  /* background-size: cover; */
   /* min-width: 100vh; */
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
-.signup-overlay {
-  background:rgba(255,255,255, 0.5);
+.sign-up-overlay {
+  background-image: url('/src/images/sandiegocoast.jpeg');
+  background-size: cover;
+  border-radius: 1em;
   display:flex; 
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 3em;
+  padding:15em;
+}
+
+/* header text */
+.sign-up-page {
+  /* background:rgba(255,255,255, 0.5); */
+  margin: 1em;
+  padding: 2em;
+  color:white;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  /* align-content: right; */
+  text-align: right;
+  color:white;
+  margin-bottom: 1em;
+  font-weight: bold;
+}
+
+.sign-up-input {
+  margin-bottom: 1em;
+  border-radius: .3em;
   border: none;
-  max-width: 80em;
-  margin: 6em 5em 0 5em;
-  padding:2em;
+  padding-left: .5em;
+}
+
+.sign-up-button {
+/* background:yellow; */
+background:orangered;
+padding: .3em .6em;
+color: white;
+border: none;
+border-radius: .3em;
+font-size: 1em;
+font-family: sans-serif;
+margin: .3em;
+display: flex;
+justify-content: center;
+}
+
+.link-register-div {
+  color: white;
+  font-weight: bolder;
+}
+
+a:hover {
+  color: orange;
+}
+
+a {
+  color:white;
 }

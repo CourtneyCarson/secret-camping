@@ -8,9 +8,8 @@
 */
 
 
-
+/* background image */
 .login-overlay {
-  /* background:rgba(255,255,255, 0.5); */
   background-image: url('/src/images/ItalyBackground.jpeg');
   background-size:cover;
   border-radius: 1em;
@@ -18,12 +17,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border: none; */
-  /* max-width: 80em; */
   margin: 3em;
   padding:15em;
 }
 
+/* header text */
 .log-in-page {
   /* background:rgba(255,255,255, 0.5); */
   margin: 1em;
@@ -43,6 +41,9 @@
 
 .login-input {
   margin-bottom: 1em;
+  border: none;
+  border-radius: .3em;
+  padding-left: .5em;
 }
 
 .login-button {
