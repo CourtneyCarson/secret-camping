@@ -16,7 +16,7 @@
   justify-content: center;
   align-items: center; 
   border: none;
-  max-width: 80em;
+  /* max-width: 80em; */
   margin: 6em 5em 0 5em;
   padding:2em;
   border-radius: 3em;

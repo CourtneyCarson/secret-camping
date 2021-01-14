@@ -69,13 +69,12 @@ class LogIn extends Component {
 
     return (
       <main>
-        <section className="login-component">
-
-          <section className='login-overlay' >
-            <div className="log-in-page">
-              <h1>Secret Camping</h1>
-              <h2 className='log-in-header'>Log In</h2>
-            </div>
+        {/* <section className="login-component"> */}
+        <section className='login-overlay' >
+          <div className="log-in-page">
+            <h1>Secret Camping</h1>
+            <h2 className='log-in-header'>Log In</h2>
+          </div>
 
             <div className="form-div">
               <form className='login-form' onSubmit={this.handleSubmit}>
@@ -112,7 +111,7 @@ class LogIn extends Component {
 
             </div>
           </section>
-        </section>
+        {/* </section> */}
 
       </main>
 
