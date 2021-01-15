@@ -104,7 +104,7 @@ class Search extends Component {
             <form className='search-list-div' onSubmit={this.handleSubmit}>
               <div className='content-div'>
 
-                <div className='left-side-image-content'>
+                <div className='left-side-image-content-search-page'>
                   <img src={location.image} alt='location' className='search-list-img' />
                   <p className='content-p'>{location.content}</p>
                 </div>
@@ -113,8 +113,8 @@ class Search extends Component {
                 <div className='right-side-map-keyword'>
                   <iframe
                     className="map-image-search-page"
-                    width="350"
-                    height="350"
+                    width="322.46"
+                    height="322.46"
                     id="google_map"
                     src={iFrameUrl}
                     frameBorder="0"

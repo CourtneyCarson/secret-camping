@@ -1,21 +1,16 @@
-/*//////////////////////// list of returned results //////////////////*/
+/* /////////////////MOBILE STYLING ////////////////////////////////////// */
+
+/* list of returned results */
 .search-list {
-  /* display:flex; 
-  flex-direction: column; 
-  justify-content: center;
-  align-items: center; 
-  border: none;
-  max-width: 80em;
-  margin: 6em 5em 0 5em;
-  padding:2em; */
   background:white;
-  /* max-width: 80em; */
-  margin: 0em 5em 2em 5em;
+  margin: 1em 1em 0 1em;
   border-radius:2em;
   padding-bottom:2em;
 }
 
 .search-list-img {
+  max-width: 90%;
+  height: auto;
   border-radius: .5em;
 }
 
@@ -53,6 +48,38 @@
   border-radius: 1em;
 }
 
+.map-image-search-page {
+  max-width: 90%;
+  max-height:80%;
+  border-radius: .5em;
+}
+
 .search-label {
   font-weight: bold;
+}
+
+/* FULL SCREEN */
+@media screen and (min-width:600px) {
+.search-list {
+border-radius: 2em;
+}
+
+.content-div {
+  display: flex;
+  flex-direction: row;
+  }
+
+  /* right section of card */
+  .right-side-map-keyword {
+    flex: 1;
+  }
+
+  .left-side-image-content-search-page {
+    flex: 1;
+  }
+
+  .map-image-search-page {
+    border-radius: .5em;
+  }
+
 }

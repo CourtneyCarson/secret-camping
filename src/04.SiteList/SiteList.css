@@ -40,6 +40,8 @@
 
 
 
+
+
 /* FULL SCREEN */
 @media screen and (min-width:600px) {
   .list-page {
@@ -74,7 +76,7 @@
   /* right section of card */
   .right-side-map-keyword-site-list {
     flex: 1;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     /* padding-right: 1em; */
   }
 
@@ -105,6 +107,10 @@
 
   .map-image-site-list-page {
     border-radius: .5em;
+  }
+
+  .site-list {
+    border-radius: 2em;
   }
 }
   
