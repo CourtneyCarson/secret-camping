@@ -62,7 +62,6 @@ export default class SiteList extends Component {
         location_id,
       }),
     })
-      // .then((res) => res.json());res.statusText
       .then(res => {
         if (!res.ok) {
           console.log(res);
@@ -97,7 +96,6 @@ export default class SiteList extends Component {
 
       <main>
         <div className="list-page">
-          {/* <h1 className='list-h1'>List</h1> */}
 
           <section className='form-search-section'>
 
@@ -128,16 +126,11 @@ export default class SiteList extends Component {
                   <form className='locations-div' onSubmit={this.handleSubmit}>
                     <div className='content-div'>
                       <div className='left-side-image-content'>
-                        {/* <p className='title'>{item.title}</p> */}
                         <img src={item.image} alt='location' className='site-list-img' />
                         <p className='content-p'>{item.content}</p>
-                        {/* <p>{item.location}</p> */}
                       </div>
 
-                      {/* <div className='content-div'> */}
-                      {/* <input type='hidden' name='locationId' value={item.id}></input>
-                      <button className='save-button' type='submit'> Save </button> */}
-                      {/* </div> */}
+
 
                       <div className='right-side-map-keyword'>
                         {/* google map */}
@@ -152,11 +145,11 @@ export default class SiteList extends Component {
                           scrolling="no"
                           alt={item.keyword}
                           title='title'
-                          // maptype='satellite'
+                        // maptype='satellite'
                         ></iframe>
                         <p className='keyword-p'>{item.keyword}</p>
                         <input type='hidden' name='locationId' value={item.id}></input>
-                    <button className='save-button' type='submit'> Save </button>
+                        <button className='save-button' type='submit'> Save </button>
 
                       </div>
                     </div>
@@ -164,7 +157,6 @@ export default class SiteList extends Component {
                     <button className='save-button' type='submit'> Save </button> */}
 
                   </form>
-                  {/* ratings render + rate location */}
 
 
                 </div>

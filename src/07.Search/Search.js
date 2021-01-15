@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import config from '../config';
 import './Search.css';
 import StarRating from '../08.StarRating/StarRating';
+import TokenService from '../services/token-service';
 
 class Search extends Component {
   constructor(props) {
@@ -22,16 +23,48 @@ class Search extends Component {
     });
   }
 
-  // validateSearchTerm() {
-  //   const searchTerm = this.state.searchTerm.value.trim();
-  //   if (searchTerm.length === 0) {
-  //     return 'Search Term Is Required';
-  //   } else if (searchTerm.length < 2) {
-  //     return 'Search Term must be at least 2 characters long';
-  //   }
-  // }
 
-  // 
+  // handle submit for saving to users account button:
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { locationId } = event.target;
+    this.setState({ error: null });
+    this.postLocation(locationId.value);
+  };
+
+
+
+  //  POST - SAVE LOCATION TO USER ACCOUNT 
+  postLocation(location_id) {
+    let URL = `${config.API_ENDPOINT}/userloc/${location_id}`;
+
+    return fetch(URL, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({
+        location_id,
+      }),
+    })
+      // .then((res) => res.json());res.statusText
+      .then(res => {
+        if (!res.ok) {
+          console.log(res);
+          this.setState({ error: `Location already saved to account` });
+        } else {
+          res.json();
+          window.location = '/account';
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        this.setState({ error: err });
+      });
+  }
+
+
   searchForm = (event) => {
     event.preventDefault();
     const { searchTerm } = event.target;
@@ -51,27 +84,12 @@ class Search extends Component {
       .catch((error) => this.setState({ error }));
   };
 
-  // to render page based on either search items or not :
-  /// ternary button that swaps between two - state button set state to search - put on parent of both filter + sitelist , conditionaly
-  //render based on state 
-
-
-
   render() {
 
-    const msg = this.state.error ? <p>
-      {this.state.error.error}
-    </p> :
-      <div></div>;
+    const msg = this.state.error ? <p>{this.state.error.error}</p> : <div></div>;
 
-    // find way to only show this after searching - not all the time: 
-    // show no items by default
     let showLocationsPage = '';
-    // if (this.state.locations.length === 0) {
-    //   showLocationsPage = <p> No Locations Here</p>;
-    // }
-    //if there are items - display details for each: 
-    // else {
+
     showLocationsPage = this.state.locations.map((location, key) => {
       let iFrameUrl = `https://maps.google.com/maps?q=${location.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
 
@@ -83,7 +101,7 @@ class Search extends Component {
             <h2 className='title'>{location.title}</h2>
 
 
-            <form className='search-list-div'>
+            <form className='search-list-div' onSubmit={this.handleSubmit}>
               <div className='content-div'>
 
                 <div className='left-side-image-content'>
@@ -105,16 +123,16 @@ class Search extends Component {
                     title='title'
                   ></iframe>
                   <p className='keyword-p'>{location.keyword}</p>
+                  <input type='hidden' name='locationId' value={location.id}></input>
+                  <button className='save-button' type='submit'> Save </button>
 
                 </div>
               </div>
             </form>
-            {/* <StarRating /> */}
           </div>
         </section>
       );
     });
-    // }
 
 
 
@@ -149,8 +167,6 @@ class Search extends Component {
     );
   }
 }
-
-
 
 
 export default Search;

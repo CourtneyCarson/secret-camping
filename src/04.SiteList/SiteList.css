@@ -31,10 +31,10 @@
   margin: .5em;
 }
 
-.map-image {
+/* .map-image {
   max-width: 90%;
   border-radius: .5em;
-}
+} */
 
 
 
@@ -99,6 +99,11 @@
     padding:0em;
     margin: 0em;
   }
+
+  /* .map-image {
+    min-width: 100%;
+    min-height: 100%;
+  } */
 }
   
  
