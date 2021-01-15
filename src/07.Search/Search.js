@@ -112,7 +112,7 @@ class Search extends Component {
 
                 <div className='right-side-map-keyword'>
                   <iframe
-                    className="map-image"
+                    className="map-image-search-page"
                     width="350"
                     height="350"
                     id="google_map"

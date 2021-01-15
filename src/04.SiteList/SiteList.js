@@ -62,6 +62,7 @@ export default class SiteList extends Component {
         location_id,
       }),
     })
+      // .then((res) => res.json());res.statusText
       .then(res => {
         if (!res.ok) {
           console.log(res);
@@ -124,32 +125,32 @@ export default class SiteList extends Component {
                   <h2 className='title'>{item.title}</h2>
 
                   <form className='locations-div' onSubmit={this.handleSubmit}>
-                    <div className='content-div'>
+                    <div className='site-list-content-div'>
                       <div className='left-side-image-content'>
                         <img src={item.image} alt='location' className='site-list-img' />
                         <p className='content-p'>{item.content}</p>
                       </div>
 
+                    
 
-
-                      <div className='right-side-map-keyword'>
+                      <div className='right-side-map-keyword-site-list'>
                         {/* google map */}
 
                         <iframe
-                          className="map-image"
-                          width="350"
-                          height="350"
+                          className="map-image-site-list-page"
+                          width="322.46"
+                          height="322.46"
                           id="google_map"
                           src={iFrameUrl}
                           frameBorder="0"
                           scrolling="no"
                           alt={item.keyword}
                           title='title'
-                        // maptype='satellite'
+                          // maptype='satellite'
                         ></iframe>
                         <p className='keyword-p'>{item.keyword}</p>
                         <input type='hidden' name='locationId' value={item.id}></input>
-                        <button className='save-button' type='submit'> Save </button>
+                    <button className='save-button' type='submit'> Save </button>
 
                       </div>
                     </div>

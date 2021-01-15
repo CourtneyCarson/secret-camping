@@ -19,7 +19,7 @@ export default class Landing extends Component {
 
 
           <div className='landing-page-content'>
-            <div className='content-div'>
+            <div className='landing-content-div'>
             <p> A members only site to share the best secluded camping spots.</p>
             <p>No campsites. <br></br> No other people. <br></br> Just you and nature.</p>
             </div>

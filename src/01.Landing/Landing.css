@@ -18,7 +18,7 @@
   font-size: 1.5em;
 }
 
-.content-div {
+.landing-content-div {
   display: flex; 
   flex-direction: column;
   width: 15em;
@@ -52,10 +52,7 @@
   }
   
   .landing-page-header {
-    /* margin: 1em; */
-    /* padding: 2em; */
     font-size: 2em;
-
   }
   
   .landing-page-content {
@@ -68,8 +65,8 @@
     text-decoration:none;
   }
   
-  .content-div {
-     width: 100%;
+  .landing-content-div {
+    width: 100%;
   }
   
   }
