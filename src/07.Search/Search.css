@@ -1,24 +1,17 @@
 /* /////////////////MOBILE STYLING ////////////////////////////////////// */
 
-/* list of returned results */
-.search-list {
-  background:white;
-  margin: 1em 1em 0 1em;
-  border-radius:2em;
-  padding-bottom:2em;
+/* SEARCH FORM INPUT & BUTTON */
+
+/* box with input + button inside */
+.search-form {
+  /* flex:2; */
+  background: white;
+  padding: 2.5em;
+  margin: 3em;
+  border-radius: 1em;
 }
 
-.search-list-img {
-  max-width: 90%;
-  height: auto;
-  border-radius: .5em;
-}
-
-.content-p, .keyword-p {
-  font-weight: bold;
-}
-
-/*///////////// input box & button ///////////////////////////////////*/
+/* input box & button */
 .search-input {
   border: none;
   border-radius: .3em;
@@ -29,6 +22,12 @@
   background:pink;
 }
 
+/* search input label */
+.search-label {
+  font-weight: bold;
+}
+
+/* search button */
 .search-button {
   padding: .3em .6em;
   background: #307E7C;
@@ -40,46 +39,80 @@
   margin: .3em;
 }
 
-.search-form {
-  /* flex:2; */
-  background: white;
-  padding: 2.5em;
-  margin: 3em;
-  border-radius: 1em;
+
+/* LIST OF RETURNED RESULTS */
+
+/* results card with content + image + map */
+.search-list {
+  background:white;
+  margin: 1em 1em 0 1em;
+  border-radius:2em;
+  padding-bottom:2em;
 }
 
-.map-image-search-page {
+/* images from returned search */
+.search-list-img {
   max-width: 90%;
-  max-height:80%;
+  height: auto;
   border-radius: .5em;
 }
 
-.search-label {
+/* google map */
+.map-image-search-page {
+  max-width: 90%;
+  border-radius: .5em;
+}
+
+/* content + keyword returned search */
+.content-p, .keyword-p {
   font-weight: bold;
 }
 
+
+
+
 /* FULL SCREEN */
-@media screen and (min-width:600px) {
-.search-list {
-border-radius: 2em;
-}
-
-.content-div {
-  display: flex;
-  flex-direction: row;
+@media screen and (min-width:800px) {
+ 
+/* results card with content + image + map */
+  .search-list {
+    border-radius: 2em;
   }
 
-  /* right section of card */
-  .right-side-map-keyword {
-    flex: 1;
+/* contents in card */
+  .search-list-div{
+    padding: .5em;
   }
 
+/* images + maps + content div */
+  .content-div {
+    display: flex;
+    flex-direction: row;
+  }
+
+/* left section of card (image + content) */
   .left-side-image-content-search-page {
     flex: 1;
+    padding:1em;
   }
 
+/* right section of card (google map + location + button) */
+  .right-side-map-keyword {
+    flex: 1;
+    padding:1em;
+  }
+
+/* google map */
   .map-image-search-page {
     border-radius: .5em;
+    max-width: 100%;
+    max-height: 100%;
   }
 
+/* images */
+  .search-list-img {
+    max-width: 100%;
+    height: auto;
+  }
+  
 }

@@ -105,7 +105,7 @@ class Search extends Component {
               <div className='content-div'>
 
                 <div className='left-side-image-content-search-page'>
-                  <img src={location.image} alt='location' className='search-list-img' />
+                  <img src={location.image} alt='location' className='search-list-img' height='322.46' width='322.46'/>
                   <p className='content-p'>{location.content}</p>
                 </div>
 

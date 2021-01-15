@@ -127,7 +127,7 @@ export default class SiteList extends Component {
                   <form className='locations-div' onSubmit={this.handleSubmit}>
                     <div className='site-list-content-div'>
                       <div className='left-side-image-content'>
-                        <img src={item.image} alt='location' className='site-list-img' />
+                        <img src={item.image} alt='location' className='site-list-img' height="322.46" width='322.46' />
                         <p className='content-p'>{item.content}</p>
                       </div>
 
