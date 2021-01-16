@@ -1,19 +1,6 @@
-/* ///////////////////FULL SCREEN STYLING ///////////////////////// */
-@media screen and (min-width:600px){
-/* //////////////////entire ratings section icons + dropdown /////////////// */
-.ratings {
-  padding: 3em 1em 0em 1em;
-  /* background:red; */
-}
+/* MOBILE STYLING */
 
-.rating-form {
-  display: flex;
-  justify-content: space-around;
-  /* background:yellow; */
-}
-
-}
-/* ////////////////////container with the rating icons ///////////////// */
+/* container with the rating icons  */
 .stars-container {
   display:flex;
 }
@@ -24,7 +11,7 @@
 }
 
 
-/*///// whether or not the icons are filled in //////////////////////////////*/
+/* whether or not the icons are filled in */
 .empty-star {
   color:lightgray;
   display:flex;
@@ -35,7 +22,7 @@
 }
 
 
-/* //////////////////// the actual ratings drop down  ///////////////// */
+/*  the actual ratings drop down   */
 .rating-select {
   /* background: palevioletred; */
   margin: 0em 0em 2em .5em;
@@ -46,13 +33,13 @@
 }
 
 
-/*//////////////////// ratings drop down section//////////////////// */
+/*ratings drop down section */
 .rating-select-div {
   display: flex; 
 }
 
 
-/* ////////////////////dropdown submit button//////////////////// */
+/* dropdown submit button*/
 .rating-btn {
   padding: .3em .6em;
   background: #307E7C;
@@ -70,3 +57,17 @@
   padding: 1.5em;
 }
 
+
+/* FULL SCREEN STYLING  */
+@media screen and (min-width:600px){
+  /* entire ratings section icons + dropdown  */
+  .ratings {
+    padding: 3em 1em 0em 1em;
+  }
+  
+  .rating-form {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+}
