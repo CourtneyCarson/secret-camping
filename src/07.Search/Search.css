@@ -19,7 +19,7 @@
   font-family: sans-serif;
   padding: .3em;
   margin: .3em;
-  background:pink;
+  background: aliceblue;
 }
 
 /* search input label */
@@ -30,7 +30,7 @@
 /* search button */
 .search-button {
   padding: .3em .6em;
-  background: #307E7C;
+  background: darkslategray;
   color: white;
   border: none;
   border-radius: .3em;
@@ -114,5 +114,5 @@
     max-width: 100%;
     height: auto;
   }
-  
+
 }

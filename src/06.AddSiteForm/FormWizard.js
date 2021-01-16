@@ -66,7 +66,6 @@ class FormWizard extends React.Component {
         });
     } else {
 
-      // figure out how to get page to refresh so uploaded image doesn't still show. 
       this.setState({
         currentStep: 1
       });
