@@ -150,7 +150,7 @@ class FormWizard extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h4 className='add-new-site-header'>Add A New Site 🧙‍♂️</h4>
+        <h4 className='add-new-site-header'> Share Your Favorite Wilderness Retreat </h4>
         <p>Step {this.state.currentStep} </p>
 
         <form onSubmit={this.handleSubmit}>
@@ -201,7 +201,6 @@ function Step1(props) {
       </section>
 
       <section className='right-side'>
-        <p>The resulting image will be displayed here</p>
         {props.imageUrl && (
           <img src={props.imageUrl} alt={props.imageAlt} className='displayed-image' />
         )}

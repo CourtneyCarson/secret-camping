@@ -37,7 +37,7 @@
 /* navigate through form buttons */
  .next-btn, .previous-btn, .add-btn, .sub-another-btn{
   padding: .3em .6em;
-  background: orangered;
+  background: darkslategray;
   color: white;
   border: none;
   border-radius: .3em;
@@ -45,6 +45,11 @@
   font-family: sans-serif;
   margin: .3em;
 }
+
+.add-btn {
+  background-color: #307E7C;
+}
+
 
 /* displayed image after upload */
 .displayed-image {

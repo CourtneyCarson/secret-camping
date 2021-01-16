@@ -1,9 +1,9 @@
  /*////////////////////////////////// MOBILE STYLING /////////////////*/
  /* entire page + background */
  .list-page {
-  background-image: url('/src/images/sky&lake.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: url('/src/images/riverinforest.jpeg');
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
   border-radius: 1em;
   padding: 1em;
 }
@@ -13,6 +13,11 @@
    background:white;
    margin: 1em 1em 0 1em;
    border-radius: 1em;
+}
+
+
+.site-list-component {
+  max-width: 50em;
 }
 
 /* images */
