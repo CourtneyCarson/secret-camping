@@ -34,7 +34,8 @@
   color: white;
   border: none;
   border-radius: .3em;
-  font-size: 1em;
+  font-size: 1.2em;
+  font-weight: bold;
   font-family: sans-serif;
   margin: .3em;
 }
@@ -42,6 +43,9 @@
 
 /* LIST OF RETURNED RESULTS */
 
+.search-results-list {
+  max-width: 50em;
+}
 /* results card with content + image + map */
 .search-list {
   background:white;

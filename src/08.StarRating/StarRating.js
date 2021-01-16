@@ -4,7 +4,6 @@ import config from '../config';
 import TokenService from '../services/token-service';
 import './StarRating.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faTree } from '@fortawesome/free-solid-svg-icons';
 import { faCampground } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -49,7 +48,7 @@ class StarRating extends Component {
     let URL = `${config.API_ENDPOINT}/ratings/${this.props.id}`;
     let rating = event.target.ratings_select.value;
 
-    console.log(rating, 'rating');
+    // console.log(rating, 'rating');
 
     return fetch(URL, {
       method: 'POST',
@@ -81,24 +80,10 @@ class StarRating extends Component {
 
 
   render() {
-    // STILL NEED TO HANDLE ERROR: let error = this.state.error
-
-
-    // error message output 
-    let showErrorOutput = '';
-    console.log(this.props.showError);
-    if (this.props.showError) {
-      showErrorOutput = <div className='alert alert-info'>
-        {this.props.showError}
-      </div>;
-    }
-
-
     let rating = Math.round(parseInt(parseFloat(this.state.rating.average_rating))) || 1;
 
     return (
       <section className='ratings'>
-
         <form onSubmit={this.postForm} className='rating-form'>
 
           <div className='stars-container'>
@@ -116,14 +101,16 @@ class StarRating extends Component {
 
           {/* leave a rating dropdown */}
           <div className='rating-select-div'>
-            <p>leave a rating</p>
+            <p>Leave A Rating</p>
 
-            <select name='ratings_select' className='rating-select'>
+
+            <select name='ratings_select' className='rating-select' aria-label='rating' >
               {[1, 2, 3, 4, 5].map(num => {
                 return (
                   <option
                     key={num}
                     value={num}
+                    aria-label='dropdown'
                   >{num}
                   </option>
                 );
@@ -131,7 +118,6 @@ class StarRating extends Component {
             </select>
             <button className='rating-btn'>Submit</button>
           </div>
-          {/* {showErrorOutput} */}
 
         </form>
       </section>

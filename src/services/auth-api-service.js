@@ -2,7 +2,6 @@ import config from '../config';
 
 const AuthApiService = {
   // register a new user
-
   postUser(user) {
     return fetch(`${config.API_ENDPOINT}/users`, {
       method: 'POST',

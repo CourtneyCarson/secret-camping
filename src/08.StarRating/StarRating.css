@@ -48,6 +48,7 @@
   border-radius: .3em;
   font-size: 1em;
   font-family: sans-serif;
+  font-weight:bold;
   margin: 1em;
 /* figure out how to get button inline with the text! */
 }

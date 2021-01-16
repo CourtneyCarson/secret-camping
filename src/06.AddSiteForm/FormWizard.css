@@ -32,6 +32,7 @@
   border-radius: .3em;
   font-size: 1em;
   font-family: sans-serif;
+  font-weight:bold;
   margin: .3em;
 }
 /* navigate through form buttons */
@@ -43,11 +44,13 @@
   border-radius: .3em;
   font-size: 1em;
   font-family: sans-serif;
+  font-weight: bold;
   margin: .3em;
 }
 
 .add-btn {
   background-color: #307E7C;
+  font-weight: bold;
 }
 
 

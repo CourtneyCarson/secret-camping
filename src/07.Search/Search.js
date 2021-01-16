@@ -48,7 +48,6 @@ class Search extends Component {
         location_id,
       }),
     })
-      // .then((res) => res.json());res.statusText
       .then(res => {
         if (!res.ok) {
           console.log(res);
@@ -68,26 +67,24 @@ class Search extends Component {
   searchForm = (event) => {
     event.preventDefault();
     const { searchTerm } = event.target;
-    console.log('searchTerm:', searchTerm.value);
+    // console.log('searchTerm:', searchTerm.value);
 
     let getLocationBySearchTerm = `${config.API_ENDPOINT}/location/keyword/${searchTerm.value}`;
 
     fetch(getLocationBySearchTerm)
       .then((loc) => loc.json())
       .then((locBySearch) => {
-        console.log(locBySearch);
+        // console.log(locBySearch);
         this.setState({
           locations: locBySearch,
         });
-        console.log(this.state);
+        // console.log(this.state);
       })
       .catch((error) => this.setState({ error }));
   };
 
   render() {
-
     const msg = this.state.error ? <p>{this.state.error.error}</p> : <div></div>;
-
     let showLocationsPage = '';
 
     showLocationsPage = this.state.locations.map((location, key) => {
@@ -105,7 +102,7 @@ class Search extends Component {
               <div className='content-div'>
 
                 <div className='left-side-image-content-search-page'>
-                  <img src={location.image} alt='location' className='search-list-img' height='322.46' width='322.46'/>
+                  <img src={location.image} alt='location' className='search-list-img' height='322.46' width='322.46' />
                   <p className='content-p'>{location.content}</p>
                 </div>
 
@@ -120,13 +117,13 @@ class Search extends Component {
                     frameBorder="0"
                     scrolling="no"
                     alt={location.keyword}
-                    title='title'
+                    title='title-map'
                   ></iframe>
                   <p className='keyword-p'>{location.keyword}</p>
                   <input type='hidden' name='locationId' value={location.id}></input>
                   <button className='save-button' type='submit'> Save </button>
-
                 </div>
+
               </div>
             </form>
           </div>

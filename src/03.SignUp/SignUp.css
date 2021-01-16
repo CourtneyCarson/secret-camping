@@ -38,7 +38,8 @@
   color: white;
   border: none;
   border-radius: .3em;
-  font-size: 1em;
+  font-size: 1.2em;
+  font-weight: bold;
   font-family: sans-serif;
   margin: .3em;
   display: flex;
@@ -58,6 +59,9 @@
     color:yellow;
   }
 
+  .sign-up-title {
+    font-size: 1.5em;
+  }
 
   @media screen and (min-width:600px){
 
@@ -71,5 +75,10 @@
       margin: 1em;
       padding: 2em;
     }
+
+    .sign-up-title {
+      font-size: 2em;
+    }
+
   }
   

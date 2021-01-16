@@ -131,7 +131,7 @@ class FormWizard extends React.Component {
         uploadPreset: 'k6ol9ng3',
       },
       (error, result) => {
-        console.log(result);
+        // console.log(result);
 
         // added if statement in so that it would only update state when successful. 
         if (result.event === 'success')

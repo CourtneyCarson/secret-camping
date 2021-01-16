@@ -9,8 +9,6 @@ export default class Landing extends Component {
     return (
 
       <main>
-        {/* <div className='landing-page'> */}
-
         <section className='landing-overlay'>
 
           <div className='landing-page-header'>
@@ -20,15 +18,14 @@ export default class Landing extends Component {
 
           <div className='landing-page-content'>
             <div className='landing-content-div'>
-            <p> A members only site to share the best secluded camping spots.</p>
-            <p>No campsites. <br></br> No other people. <br></br> Just you and nature.</p>
+              <p> A members only site to share the best secluded camping spots.</p>
+              <p>No campsites. <br></br> No other people. <br></br> Just you and nature.</p>
             </div>
-              <Link to='/login'><button className='landing-btn'>Log In</button> </Link>
+            <Link to='/login'><button className='landing-btn'>Log In</button> </Link>
             <Link to='/signup'><button className='landing-btn'>Register</button> </Link>
           </div>
 
         </section>
-        {/* </div> */}
       </main>
     );
   }

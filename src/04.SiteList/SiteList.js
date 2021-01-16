@@ -10,7 +10,6 @@ export default class SiteList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // error: null,
       locationId: "",
       location: [],
       errorMsg: '',
@@ -62,7 +61,6 @@ export default class SiteList extends Component {
         location_id,
       }),
     })
-      // .then((res) => res.json());res.statusText
       .then(res => {
         if (!res.ok) {
           console.log(res);
@@ -80,11 +78,11 @@ export default class SiteList extends Component {
 
 
   render() {
-    console.log(this.state.location);
+    // console.log(this.state.location);
 
     // error message output 
     let showErrorOutput = '';
-    console.log(this.state.errorMsg);
+    // console.log(this.state.errorMsg);
     if (this.state.errorMsg) {
       showErrorOutput = <div className='alert alert-info'>
         {this.state.errorMsg}
@@ -94,7 +92,6 @@ export default class SiteList extends Component {
 
 
     return (
-
       <main>
         <div className="list-page">
 
@@ -114,15 +111,15 @@ export default class SiteList extends Component {
 
           <h4>{this.state.location.map((item, key) => {
             // google map rendered based on keyword:
-            let iFrameUrl = `https://maps.google.com/maps?q=${item.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed&maptype=satellite`;
+            let iFrameUrl = `https://maps.google.com/maps?q=${item.keyword}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
 
             return (
               <section className='site-list-component' key={key}>
                 <div className='site-list' key={key}>
-                  {/* save multiple error */}{showErrorOutput}
+                  {showErrorOutput}
 
                   <StarRating id={item.id} showError={this.state.errorMsg} />
-                  <h2 className='title'>{item.title}</h2>
+                  <h1 className='title'>{item.title}</h1>
 
                   <form className='locations-div' onSubmit={this.handleSubmit}>
                     <div className='site-list-content-div'>
@@ -131,11 +128,8 @@ export default class SiteList extends Component {
                         <p className='content-p'>{item.content}</p>
                       </div>
 
-                    
-
                       <div className='right-side-map-keyword-site-list'>
                         {/* google map */}
-
                         <iframe
                           className="map-image-site-list-page"
                           width="322.46"
@@ -145,25 +139,23 @@ export default class SiteList extends Component {
                           frameBorder="0"
                           scrolling="no"
                           alt={item.keyword}
-                          title='title'
-                          // maptype='satellite'
-                        ></iframe>
+                          title='title-map'
+                        >
+                        </iframe>
+
                         <p className='keyword-p'>{item.keyword}</p>
                         <input type='hidden' name='locationId' value={item.id}></input>
-                    <button className='save-button' type='submit'> Save </button>
+                        <button className='save-button' type='submit'> Save </button>
 
                       </div>
                     </div>
-                    {/* <input type='hidden' name='locationId' value={item.id}></input>
-                    <button className='save-button' type='submit'> Save </button> */}
-
                   </form>
-
 
                 </div>
               </section>
             );
-          })}</h4>
+          })}
+          </h4>
 
         </div>
       </main>

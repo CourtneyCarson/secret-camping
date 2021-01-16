@@ -7,10 +7,10 @@ import './NavBar.css';
 export default class NavBar extends React.Component {
 
   logOutClick = () => {
-    console.log('Loggin Out');
+    // console.log('Loggin Out');
     TokenService.clearAuthToken();
     TokenService.getUserId = (id) => {
-      console.log(id);
+      // console.log(id);
     };
     window.location = '/';
   };
@@ -20,7 +20,6 @@ export default class NavBar extends React.Component {
     return (
       <header className='nav-bar'>
         <nav className='nav-link'>
-          {/* <div className='nav-words'> */}
           <Route exact path={['/list', '/log-out', '/account']} render={() => {
             return (
               <>

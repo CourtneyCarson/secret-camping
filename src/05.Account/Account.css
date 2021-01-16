@@ -23,6 +23,7 @@
    /* card */
    .saved-locations {
     padding: 1em;
+    max-width: 50em;
   }
   
   /* images */

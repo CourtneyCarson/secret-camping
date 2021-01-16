@@ -14,7 +14,6 @@ class Account extends Component {
     };
   }
 
-  // promise.all best practice, if wanted to set state with error bc as is they both update one after the other
   // fetch req for all users saved locations
   componentDidMount() {
     let URL = `${config.API_ENDPOINT}/userloc/user`;
@@ -50,34 +49,34 @@ class Account extends Component {
   }
 
 
-//// DELTE FETCH ////////
-handleClickDelete = (commentId) => {
-  console.log(commentId);
-  fetch(`${config.API_ENDPOINT}/comments/${commentId}`, {
-    method: "DELETE",
-    headers: {
-      "content-type": "application/json",
-    },
-  })
-    .then((res) => {
-      if (!res.ok) return res.json().then((e) => Promise.reject(e));
+  //// DELTE FETCH ////////
+  handleClickDelete = (commentId) => {
+    // console.log(commentId);
+    fetch(`${config.API_ENDPOINT}/comments/${commentId}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => {
+        if (!res.ok) return res.json().then((e) => Promise.reject(e));
 
-      return res;
-    })
-    .then(() => {
-     this.handleDeleteComment(commentId)
-    })
-    .catch((error) => {
-      console.error({ error });
-    });
-};
+        return res;
+      })
+      .then(() => {
+        this.handleDeleteComment(commentId);
+      })
+      .catch((error) => {
+        console.error({ error });
+      });
+  };
 
   handleDeleteComment = (commentId) => {
-    console.log('delete button pressed')
+    // console.log('delete button pressed');
     this.setState({
       comments: this.state.comments.filter((comment) => comment.id !== commentId),
-  })
-}
+    });
+  };
 
   render() {
 
@@ -100,13 +99,13 @@ handleClickDelete = (commentId) => {
               return (
                 <div className='saved-locations-box' key={key}>
                   <div className='same'>
-                  <h3>{locByUser.title}</h3>
-                  <p className='acct-content'>{locByUser.content}</p>
-                  <img src={locByUser.image} alt='location'className='acct-img'/>
-                  <p>{locByUser.keyword}</p>
-                  <p>{locByUser.location}</p>
+                    <h3>{locByUser.title}</h3>
+                    <p className='acct-content'>{locByUser.content}</p>
+                    <img src={locByUser.image} alt='location' className='acct-img' />
+                    <p>{locByUser.keyword}</p>
+                    <p>{locByUser.location}</p>
                   </div>
-                  
+
                   <div className='same'>
                     {Comments.map((comment, key) => {
                       return (

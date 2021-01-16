@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import config from '../config';
 import TokenService from '../services/token-service';
-import './NoteForm.css'
+import './NoteForm.css';
 
 
 class NoteForm extends Component {
@@ -16,15 +16,14 @@ class NoteForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    //better to call payload instead of comment
     const comment = {
       title: this.state.title,
       content: this.state.content,
       location_id: this.props.locId,
     };
 
-   
-    
+
+
     let URL = `${config.API_ENDPOINT}/comments/${comment.location_id}`;
     return fetch(URL, {
       method: 'POST',
@@ -43,7 +42,7 @@ class NoteForm extends Component {
         return res.json();
       })
       .then((results) => {
-        console.log(results);
+        // console.log(results);
         window.location = '/account';
       })
       .catch((error) => {
@@ -57,7 +56,7 @@ class NoteForm extends Component {
         <form className='add-notes-form' onSubmit={this.handleSubmit}>
 
           <label> Title
-        <input
+            <input
               type='text'
               className='input-title'
               placeholder='write title'
@@ -69,7 +68,7 @@ class NoteForm extends Component {
             /></label>
 
           <label> Note
-          <input
+            <input
               type="text"
               className='input-note'
               placeholder='write notes here'
