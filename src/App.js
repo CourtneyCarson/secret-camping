@@ -23,8 +23,6 @@ class App extends Component {
             <Route path='/signup' component={SignUp} />
             <Route path='/account' component={Account} />
 
-
-
           </Switch>
         </BrowserRouter>
 

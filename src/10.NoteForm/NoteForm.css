@@ -2,39 +2,37 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  }
+}
   
-  
-  .notes-inside, .input-title,
-  .input-note, .note-button {
+.notes-inside, .input-title,
+.input-note, .note-button {
   border: none;
   border-radius: .3em;
   font-size: 1em;
   font-family: sans-serif;
   padding: .3em;
   margin: .3em;
-  }
+}
   
-  .notes-inside, .input-title, .input-note {
+.notes-inside, .input-title, .input-note {
     padding: .3em .5em;
-  }
+}
   
-  .note-button {
-    display: inline-block;
-    padding: .3em .6em;
-    background: #307E7C;
-    color: white;
-  }
+.note-button {
+  display: inline-block;
+  padding: .3em .6em;
+  background: #307E7C;
+  color: white;
+}
   
-  .notes-inside{
-    background: rgb(85,107,47, .6);
-    border-radius: .3rem;
-    padding: 1rem 3rem;
-    margin: .3rem;
-    text-align: left; 
-    flex:3;
-  }
+.notes-inside{
+  background: rgb(85,107,47, .6);
+  border-radius: .3rem;
+  padding: 1rem 3rem;
+  margin: .3rem;
+  text-align: left; 
+  flex:3;
+}
   
   
   
