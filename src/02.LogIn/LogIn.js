@@ -84,7 +84,7 @@ class LogIn extends Component {
                     className="login-input"
                     type="text"
                     name='loginUsername'
-                    placeholder='user@email.com'
+                    placeholder='demo@demo.com'
                     required
                   />
                 </label>
