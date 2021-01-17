@@ -29,8 +29,7 @@ class SignUp extends Component {
         // check auth when you register
         TokenService.saveAuthtoken(res.authToken);
         TokenService.saveUserId(res.id);
-        // make sure user is logged in right when they register - need to figure out 
-        window.location = '/list';
+        window.location = '/login';
       })
       .catch(res => {
         this.setState({ error: res.error });

@@ -69,49 +69,48 @@ class LogIn extends Component {
 
     return (
       <main>
-        {/* <section className="login-component"> */}
         <section className='login-overlay' >
           <div className="log-in-page">
             <h1>Secret Camping</h1>
             <h2 className='log-in-header'>Log In</h2>
           </div>
 
-            <div className="form-div">
-              <form className='login-form' onSubmit={this.handleSubmit}>
-                {errorMessage}
-                <label className='login-label'>Email
+          <div className="form-div">
+            <form className='login-form' onSubmit={this.handleSubmit}>
+              {errorMessage}
+              <label className='login-label'>Email
               <input
-                    className="login-input"
-                    type="text"
-                    name='loginUsername'
-                    placeholder='demo@demo.com'
-                    required
-                  />
-                </label>
+                  className="login-input"
+                  type="text"
+                  name='loginUsername'
+                  placeholder='demo@demo.com'
+                  required
+                />
+              </label>
 
-                <label className='login-label'>Password
+              <label className='login-label'>Password
               <input
-                    className='login-input'
-                    type='password'
-                    name='loginPassword'
-                    placeholder='Password1'
-                    required
-                  />
-                </label>
+                  className='login-input'
+                  type='password'
+                  name='loginPassword'
+                  placeholder='Password1'
+                  required
+                />
+              </label>
 
-                <button className='login-button' type='submit'>
-                  Log In
+              <button className='login-button' type='submit'>
+                Log In
               </button>
 
-              </form>
-              <div className="link-register-div">
-                <p> Don't Have An Account?
-              <Link to="/signup" className="login-link"> Register </Link></p>
-              </div>
-
+            </form>
+            <div className="link-register-div">
+              <p align='right'> Don't Have An Account? <br></br>
+             <Link to="/signup" className="login-link"> Register </Link></p>
+              <p align='left'>Try The Site: <br></br> demo@demo.com <br></br>Password1</p>
             </div>
-          </section>
-        {/* </section> */}
+
+          </div>
+        </section>
 
       </main>
 
