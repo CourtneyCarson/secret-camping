@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Landing from './01.Landing/Landing';
-import './App.css';
-import SiteList from './04.SiteList/SiteList';
 import LogIn from './02.LogIn/LogIn';
 import SignUp from './03.SignUp/SignUp';
-import NavBar from './09.NavBar/NavBar';
+import SiteList from './04.SiteList/SiteList';
 import Account from './05.Account/Account';
+import NavBar from './09.NavBar/NavBar';
+import './App.css';
+
 
 class App extends Component {
   render() {
