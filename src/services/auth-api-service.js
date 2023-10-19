@@ -6,17 +6,14 @@ const AuthApiService = {
     return fetch(`${config.API_ENDPOINT}/users`, {
       method: 'POST',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
       },
       body: JSON.stringify(user),
     })
-      .then(res =>
-        (!res.ok) ?
-          res.json()
-            .then(event => Promise.reject(event)) :
-          res.json()
+      .then((res) =>
+        !res.ok ? res.json().then((event) => Promise.reject(event)) : res.json()
       )
-      .catch(error => {
+      .catch((error) => {
         console.log('error:', error);
       });
   },
@@ -30,16 +27,13 @@ const AuthApiService = {
       },
       body: JSON.stringify(credentials),
     })
-      .then(res =>
-        (!res.ok) ?
-          res.json()
-            .then(event => Promise.reject(event)) :
-          res.json()
+      .then((res) =>
+        !res.ok ? res.json().then((event) => Promise.reject(event)) : res.json()
       )
-      .catch(err => {
+      .catch((err) => {
         console.log('error:', err);
       });
   },
 };
 
-export default AuthApiService; 
+export default AuthApiService;

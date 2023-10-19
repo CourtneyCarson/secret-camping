@@ -28,6 +28,7 @@ class LogIn extends Component {
     })
 
       .then(res => {
+        console.log('res', res)
         TokenService.saveAuthtoken(res.authToken);
         TokenService.saveUserId(res.userId);
         loginUsername.value = '';
